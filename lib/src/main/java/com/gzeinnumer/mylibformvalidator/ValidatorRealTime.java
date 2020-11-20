@@ -3,22 +3,16 @@ package com.gzeinnumer.mylibformvalidator;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
-import com.gzeinnumer.mylibformvalidator.helper.EmailValidate;
 import com.gzeinnumer.mylibformvalidator.helper.RemoveSpaceAtFirst;
 import com.gzeinnumer.mylibformvalidator.helper.ValidatorCallBack;
-import com.gzeinnumer.mylibformvalidator.helper.ValidatorModel;
+import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ValidatorRealTime {
 

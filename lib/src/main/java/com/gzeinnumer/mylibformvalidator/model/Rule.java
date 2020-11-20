@@ -1,4 +1,4 @@
-package com.gzeinnumer.mylibformvalidator.helper;
+package com.gzeinnumer.mylibformvalidator.model;
 
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 

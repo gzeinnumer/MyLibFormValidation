@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 import com.gzeinnumer.mylibformvalidator.Validator;
-import com.gzeinnumer.mylibformvalidator.helper.ValidatorModel;
+import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
 
 import java.util.ArrayList;
 import java.util.List;
