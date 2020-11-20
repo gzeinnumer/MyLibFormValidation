@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 import com.gzeinnumer.mylibformvalidator.helper.RemoveSpaceAtFirst;
-import com.gzeinnumer.mylibformvalidator.helper.ValidatorModel;
+import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
 
 import java.util.ArrayList;
 import java.util.List;
