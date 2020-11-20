@@ -174,7 +174,7 @@ ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
 validatorRealTime.build();
 ```
 
-Use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process.
+Use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process `real time`.
 ```java
 //use observer to get validation state, true/false
 validatorRealTime.observer(new ValidatorCallBack() {
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.**
+**FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.**
 
 **Preview** :
 
