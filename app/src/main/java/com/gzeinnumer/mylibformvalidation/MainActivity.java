@@ -39,49 +39,12 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateDataNew1();
-//                validateDataNew2();
-//                validateDataNew3();
+                validateData();
             }
         });
     }
 
-    private void validateDataNew1() {
-        List<ValidatorModel> views = new ArrayList<>();
-        views.add(new ValidatorModel(formNama));
-        views.add(new ValidatorModel(formAlamat, TypeForm.TEXT));
-        views.add(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT, 1, "Jurusan tidak boleh kosong"));
-        views.add(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
-        views.add(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
-        views.add(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));
-
-        if (Validator.toValidate(views)) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void validateDataNew2() {
-        Validator validator = new Validator();
-
-        validator.addView(new ValidatorModel(formNama));
-        validator.addView(new ValidatorModel(formAlamat, TypeForm.TEXT));
-        validator.addView(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        validator.addView(new ValidatorModel(formJurusan, TypeForm.TEXT, 1, "Jurusan tidak boleh kosong"));
-        validator.addView(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
-        validator.addView(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
-        validator.addView(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));
-
-        if (validator.validate()) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void validateDataNew3() {
+    private void validateData() {
         List<ValidatorModel> views = new ArrayList<>();
 
         views.add(new ValidatorModel(formNama));

@@ -10,18 +10,12 @@ import com.gzeinnumer.mylibformvalidator.helper.ValidatorModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Validator {
 
     private List<ValidatorModel> views = new ArrayList<>();
 
     public Validator() {}
-
-    public void addView(ValidatorModel validatorModel) {
-        this.views.add(validatorModel);
-    }
 
     public void addAllView(List<ValidatorModel> views) {
         this.views = views;
@@ -31,7 +25,7 @@ public class Validator {
         return toValidate(this.views);
     }
 
-    public static boolean toValidate(List<ValidatorModel> views) {
+    private static boolean toValidate(List<ValidatorModel> views) {
         String errorEmpty;
         String errorFormat;
         int minLength;

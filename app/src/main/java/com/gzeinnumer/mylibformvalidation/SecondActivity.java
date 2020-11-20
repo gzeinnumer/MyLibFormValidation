@@ -33,10 +33,10 @@ public class SecondActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
-        initView();
+        validateData();
     }
 
-    private void initView() {
+    private void validateData() {
         List<ValidatorModel> views = new ArrayList<>();
         views.add(new ValidatorModel(formUserName, TypeForm.EMAIL));
         views.add(new ValidatorModel(formPass, TypeForm.TEXT, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
