@@ -86,6 +86,8 @@ views.add(new ValidatorModel(edittext, TypeForm.PHONE,  minLength, errorLength, 
 
 **Validate Data**
 
+Use class `Validator` as validator.
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-** FullCode [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) & [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.
+**FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
 **Preview** :
 
@@ -145,7 +147,10 @@ public class MainActivity extends AppCompatActivity {
 ---
 
 ### Form Validation RealTime
-You can add view like before. you need to use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process.
+You can enable or disable button with this step.
+
+use clas  `ValidatorRealTime` to active validate realtime.
+You can add views like [before](https://github.com/gzeinnumer/MyLibFormValidation#validation-form). You need to use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process.
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -158,12 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         ...
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateData();
-            }
-        });
+        validateData();
     }
 
     private void validateData() {
@@ -198,10 +198,8 @@ public class MainActivity extends AppCompatActivity {
 ---
 
 ### Version
-- **2.0.3**
+- **1.0.0**
   - First Release
-- **2.0.4**
-  - Add animation and set custom animation show
 
 ---
 
