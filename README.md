@@ -12,7 +12,7 @@
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple way to select Item Single or Multi</p>
+    <p>Simple way to Validate Form</p>
 </div>
 
 ---
@@ -39,6 +39,9 @@ dependencies {
 ## Feature List
 - [x] [Single Select](#searchviewdialog)
 
+## Tech stack and 3rd library
+- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
+
 ---
 
 **First Step**. Use `MaterialComponents` in your style :
@@ -49,9 +52,6 @@ dependencies {
 </style>
 ```
 
-## Tech stack and 3rd library
-- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
-
 ---
 
 ## USE
@@ -60,21 +60,22 @@ dependencies {
 [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
 [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml)
 
-You can add view that you want to validate to `List` with this model
+You can add view that you want to validate to `List` with model `ValidatorModel`.
 ```java
-List<ValidatorModel> views = new ArrayList<>();
 EditText edittext = findViewById(R.id.edittext);
 int minLength = 8;
 String errorLength = "Form tidak boleh kosong";
 String errorFormat = "Format salah";
 
+List<ValidatorModel> views = new ArrayList<>();
+
 views.add(new ValidatorModel(edittext));
 views.add(new ValidatorModel(edittext, TypeForm.TEXT));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT, minLength));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT, minLength, errorLength));
-views.add(new ValidatorModel(edittext, TypeForm.EMAIL, minLength, errorLength, errorFormat));
+views.add(new ValidatorModel(edittext, TypeForm.TEXT,   minLength));
+views.add(new ValidatorModel(edittext, TypeForm.TEXT,   minLength, errorLength));
+views.add(new ValidatorModel(edittext, TypeForm.EMAIL,  minLength, errorLength, errorFormat));
 views.add(new ValidatorModel(edittext, TypeForm.NUMBER, minLength, errorLength, errorFormat));
-views.add(new ValidatorModel(edittext, TypeForm.PHONE, minLength, errorLength, errorFormat));
+views.add(new ValidatorModel(edittext, TypeForm.PHONE,  minLength, errorLength, errorFormat));
 
 //TypeForm avaliable value
 //TypeForm.TEXT
@@ -170,14 +171,13 @@ if (validator.validate()) {
 
 **Preview** :
 
-| <img src="https://github.com/gzeinnumer/MyLibDialogSearchView/blob/master/preview/MyLibDialogSearchView_2.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDialogSearchView/blob/master/preview/MyLibDialogSearchView_4.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDialogSearchView/blob/master/preview/MyLibDialogSearchView_6.jpg"/> |
-|:-----------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| `Single Select Item` Preview, you only can select **1** Item                                                     | Click `OK` and call function `onOkPressedCallBackSingle`                                                         | Fiture `Filter` will enable on `Single Select` or `Multi Select`                                                 |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example6.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg.jpg"/> |
+|---|---|---|
+| First Preview | Validate output `false` | Validate output `true` |
 
-
-| <img src="https://github.com/gzeinnumer/MyLibDialogSearchView/blob/master/preview/MyLibDialogSearchView_5.jpg" /> | <img src="https://github.com/gzeinnumer/MyLibDialogSearchView/blob/master/preview/MyLibDialogSearchView_7.jpg"/> |
-|:------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| `Multi Select Item` Preview, you can select more than **1** Item                                                  | Click `OK` and call function `onOkPressedCallBackMulti`                                                          |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example4.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example7.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example3.jpg"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example2.jpg"/> |
+|---|---|---|---|
+| `default setting` | minimal charakter is 8 | Custom error message | Format `email` must be correct |
 
 ---
 
