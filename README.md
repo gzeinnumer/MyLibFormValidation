@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**FullCode [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) & [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **
+** FullCode [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) & [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.
 
 **Preview** :
 
@@ -187,17 +187,15 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**FullCode [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) & [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **
+** FullCode [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) & [XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.
 
 **Preview** :
 
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example6.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg"/> |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example9.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example10.jpg"/> |
 |---|---|---|
-| First Preview | Validate output `false` | Validate output `true` |
+| Email Format | Password Requirements 8 Character  | `Button` Login Enable |
 
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example4.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example7.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example3.jpg"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example2.jpg"/> |
-|---|---|---|---|
-| `default setting` | minimal charakter is 8 | Custom error message | Format `email` must be correct |
+[![Watch the video](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg)](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example11.mp4)
 
 ---
 
