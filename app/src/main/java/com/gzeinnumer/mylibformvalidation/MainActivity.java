@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                validateDataNew1();
+                validateDataNew1();
 //                validateDataNew2();
 //                validateDataNew3();
             }

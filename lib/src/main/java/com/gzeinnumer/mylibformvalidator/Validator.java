@@ -78,9 +78,10 @@ public class Validator {
     }
 
     private static boolean isValidNumber(String target) {
-        Pattern pattern = Pattern.compile("[0-9]");
-        Matcher matcher = pattern.matcher(target);
-        return (!TextUtils.isEmpty(target) && matcher.matches());
+        for (char c : target.toCharArray()) {
+            if (!Character.isDigit(c)) return false;
+        }
+        return true;
     }
 
     private static boolean isValidPhone(String number) {

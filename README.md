@@ -58,11 +58,16 @@ dependencies {
 
 ### Validation Form
 [MainActivity](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
-[XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
+[XML](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml)
 
 You can add view that you want to validate to `List` with this model
 ```java
 List<ValidatorModel> views = new ArrayList<>();
+EditText edittext = findViewById(R.id.edittext);
+int minLength = 8;
+String errorLength = "Form tidak boleh kosong";
+String errorFormat = "Format salah";
+
 views.add(new ValidatorModel(edittext));
 views.add(new ValidatorModel(edittext, TypeForm.TEXT));
 views.add(new ValidatorModel(edittext, TypeForm.TEXT, minLength));
