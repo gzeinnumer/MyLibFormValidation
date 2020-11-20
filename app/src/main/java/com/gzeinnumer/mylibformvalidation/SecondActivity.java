@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
@@ -29,10 +31,10 @@ public class SecondActivity extends AppCompatActivity {
 
         formUserName = findViewById(R.id.form1);
         formPass = findViewById(R.id.form2);
-
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
+        btn1.setEnabled(true);
         validateData();
     }
 
@@ -49,7 +51,18 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void result(boolean isDone) {
                 Log.d(TAG, "result: "+isDone);
-                btn1.setEnabled(isDone);
+//                btn1.setEnabled(isDone);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validatorRealTime.getResult()){
+                    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

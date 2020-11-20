@@ -53,7 +53,7 @@ public class ValidatorRealTime {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     if (!hasFocus){
-                        if (ed.getText().toString().length() < finalMinLength) {
+                        if (ed.getText().toString().length() == 0) {
                             ed.setError(finalErrorEmpty);
                         }
                         if (view.getRule().getTypeForm() == TypeForm.EMAIL) {
@@ -131,6 +131,17 @@ public class ValidatorRealTime {
             }
         }
         validatorCallBack.result(isDone);
+    }
+
+    public boolean getResult() {
+        boolean isDone = true;
+        for (int i=0; i<views.size(); i++){
+            if (!views.get(i).isDone()){
+                isDone = false;
+                break;
+            }
+        }
+        return isDone;
     }
 
     private boolean isValidEmail(String target) {

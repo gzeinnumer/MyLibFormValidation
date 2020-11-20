@@ -84,9 +84,24 @@ views.add(new ValidatorModel(edittext, TypeForm.PHONE,  minLength, errorLength, 
 //TypeForm.PHONE
 ```
 
-**Validate Data**
+Use class `Validator` to validate your form data. And add your views.
 
-Use class `Validator` as validator.
+```java
+Validator validator = new Validator();
+validator.addAllView(views);
+```
+
+Use `validator.validate()` to validate your data.
+
+```java
+if (validator.validate()) {
+    Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+} else {
+    Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
+}
+```
+
+Here is full preview.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -147,10 +162,43 @@ public class MainActivity extends AppCompatActivity {
 ---
 
 ### Form Validation RealTime
-You can enable or disable button with this step.
+You can enable or disable `button` with this step.
 
-use clas  `ValidatorRealTime` to active validate realtime.
-You can add views like [before](https://github.com/gzeinnumer/MyLibFormValidation#validation-form). You need to use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process.
+Use class  `ValidatorRealTime` to active validate realtime. Add views like [before](https://github.com/gzeinnumer/MyLibFormValidation#validation-form).
+```java
+List<ValidatorModel> views = new ArrayList<>();
+views.add(new ValidatorModel(edittext, TypeForm.EMAIL));
+
+ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
+
+validatorRealTime.build();
+```
+
+Use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process.
+```java
+//use observer to get validation state, true/false
+validatorRealTime.observer(new ValidatorCallBack() {
+    @Override
+    public void result(boolean isDone) {
+        Log.d(TAG, "result: "+isDone);
+        btn1.setEnabled(isDone);
+    }
+});
+```
+
+Use `validatorRealTime.getResult()` to get current state validation.
+
+```java
+//use getResult to get current state, true/false
+if (validatorRealTime.getResult()){
+    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+} else {
+    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+}
+```
+
+Here is full preview.
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -175,12 +223,25 @@ public class MainActivity extends AppCompatActivity {
 
         validatorRealTime.build();
 
-        //use
+        //use observer to get validation state, true/false
         validatorRealTime.observer(new ValidatorCallBack() {
             @Override
             public void result(boolean isDone) {
                 Log.d(TAG, "result: "+isDone);
                 btn1.setEnabled(isDone);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //use getResult to get current state, true/false
+                if (validatorRealTime.getResult()){
+                    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

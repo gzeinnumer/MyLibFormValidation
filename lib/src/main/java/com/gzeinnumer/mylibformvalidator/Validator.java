@@ -42,7 +42,7 @@ public class Validator {
             errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : "Tidak boleh kosong";
             errorFormat = (view.getRule().getErrorFormat() != null) ? view.getRule().getErrorFormat() : "Format salah";
 
-            if (ed.getText().toString().length() < minLength) {
+            if (ed.getText().toString().length() == 0) {
                 ed.setError(errorEmpty);
                 isValidate = false;
                 continue;
@@ -59,6 +59,11 @@ public class Validator {
                 }
             } else if (view.getRule().getTypeForm() == TypeForm.PHONE) {
                 if (!isValidPhone(ed.getText().toString())) {
+                    ed.setError(errorFormat);
+                    isValidate = false;
+                }
+            } else if (view.getRule().getTypeForm() == TypeForm.TEXT){
+                if (ed.getText().toString().length() < minLength) {
                     ed.setError(errorFormat);
                     isValidate = false;
                 }
