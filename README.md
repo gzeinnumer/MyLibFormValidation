@@ -59,14 +59,14 @@ dependencies {
 
 ### Validation Form
 
-- Import and start validation with make and object from class `Validator`.
+- **Import and start validation with make and object from class `Validator`.**
 ```java
 //import com.gzeinnumer.mylibformvalidator.Validator;
 
 Validator validator = new Validator();
 ```
 
-- Add your form that you want to validate.
+- **Add your form that you want to validate.**
 
 Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
 ```java
@@ -101,7 +101,7 @@ validator.addView(
 );
 ```
 
-- Custom `Rule`
+- **Custom `Rule`.**
 
 Here some `Rule` that you can use.
 ```java
@@ -123,7 +123,7 @@ TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
 
-- Validate Result.
+- **Validate Result.**
 
 Use `validator.validate()` to get result of your validate.
 ```java
@@ -132,7 +132,7 @@ boolean result = validator.validate();
 //false if validate failed
 ```
 
-- Validate data by `OnClickListener`.
+- **Validate data by `OnClickListener`.**
 
 Trigger with `OnClickListener`.
 ```java
@@ -203,14 +203,14 @@ private void validateData() {
 
 ### Form Validation RealTime
 
-- Import and start validation with make and object from class `ValidatorRealTime`.
+- **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
 //import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
 
 ValidatorRealTime validatorRealTime = new ValidatorRealTime();
 ```
 
-- Add your form that you want to validate.
+- **Add your form that you want to validate.**
 
 Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
 ```java
@@ -245,7 +245,7 @@ validator.addView(
 );
 ```
 
-- Custom `Rule`
+- **Custom `Rule`.**
 
 Here some `Rule` that you can use.
 ```java
@@ -267,14 +267,14 @@ TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
 
-- Start Validation `RealTime`.
+- **Start Validation `RealTime`.**
 
 Use `validatorRealTime.build();` to start validation.
 ```java
 validatorRealTime.build();
 ```
 
-- Validate Result.
+- **Validate Result.**
 
 Use `validatorRealTime.observer( ... );` to get result of your validate for every input data on your form.
 ```java
@@ -289,7 +289,7 @@ validatorRealTime.observer(new ValidatorCallBack() {
 });
 ```
 
-- Validate data by `OnClickListener`.
+- **Validate data by `OnClickListener`.**
 
 Trigger with `OnClickListener`.
 ```java
