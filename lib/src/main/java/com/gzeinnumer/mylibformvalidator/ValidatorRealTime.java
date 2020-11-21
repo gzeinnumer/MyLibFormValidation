@@ -3,6 +3,7 @@ package com.gzeinnumer.mylibformvalidator;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +14,8 @@ import com.gzeinnumer.mylibformvalidator.helper.ValidatorCallBack;
 import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ValidatorRealTime {
 
@@ -66,6 +69,10 @@ public class ValidatorRealTime {
                             if (ed.getText().toString().length() < finalMinLength) {
                                 ed.setError(finalErrorEmpty);
                             }
+                        } else if (view.getRule().getTypeForm() == TypeForm.TEXT_NO_SYMBOL) {
+                            if (!isValidNoSymbol(ed.getText().toString())) {
+                                ed.setError(finalErrorEmpty);
+                            }
                         }
                     }
                 }
@@ -106,6 +113,16 @@ public class ValidatorRealTime {
                             views.get(finalI).setDone(false);
                         } else {
                             views.get(finalI).setDone(true);
+                        }
+                    } else if (view.getRule().getTypeForm() == TypeForm.TEXT_NO_SYMBOL) {
+                        if (ed.getText().toString().length() < finalMinLength) {
+                            views.get(finalI).setDone(false);
+                        } else {
+                            if (isValidNoSymbol(ed.getText().toString())) {
+                                views.get(finalI).setDone(false);
+                            } else {
+                                views.get(finalI).setDone(true);
+                            }
                         }
                     }
 
@@ -157,5 +174,16 @@ public class ValidatorRealTime {
 
     public void observer(ValidatorCallBack validatorCallBack) {
         this.validatorCallBack = validatorCallBack;
+    }
+
+    private static boolean isValidNoSymbol(String s) {
+        if (s == null || s.trim().isEmpty()) {
+            Log.d(TAG, "Incorrect format of string");
+            return false;
+        }
+        Pattern p = Pattern.compile("[^A-Za-z0-9]");
+        Matcher m = p.matcher(s);
+
+        return m.find();
     }
 }
