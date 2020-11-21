@@ -276,7 +276,7 @@ validatorRealTime.build();
 
 - Validate Result.
 
-Use `validatorRealTime.observer( ... )` to get result of your validate for every input data on your form.
+Use `validatorRealTime.observer( ... );` to get result of your validate for every input data on your form.
 ```java
 validatorRealTime.observer(new ValidatorCallBack() {
     @Override
