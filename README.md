@@ -37,8 +37,8 @@ dependencies {
 ```
 
 ## Feature List
-- [x] [Validation Form](#validationform)
-- [x] [Validation Form RealTime](#validationformrealtime)
+- [x] [Validation Form](#validation-form)
+- [x] [Validation Form RealTime](#validation-form-realtime)
 
 ## Tech stack and 3rd library
 - Material.io ([docs](https://material.io/develop/android/docs/getting-started))
@@ -205,7 +205,7 @@ private void validateData() {
 
 ---
 
-### Form Validation RealTime
+### Validation Form RealTime
 
 - **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
