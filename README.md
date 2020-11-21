@@ -155,6 +155,11 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 Validate Proses will be like this.
 ```java
+TextInputEditText formNama, formAlamat, formNim,
+    formJurusan, formEmail, formUmur, formNoHp;
+TextInputLayout formNamaParent, formAlamatParent, formNimParent,
+    formJurusanParent, formEmailParent, formUmurParent, formNoHpParent;
+
 private void validateData() {
     Validator validator = new Validator();
 
@@ -312,6 +317,51 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
         }
         //true if validate success
         //false if validate failed
+    }
+});
+```
+
+#
+- Preview Code
+```java
+TextInputEditText formUserName = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
+
+TextInputEditText formPass = findViewById(R.id.form_password);
+TextInputLayout formPassParent = findViewById(R.id.form_password_p);
+
+Button btnSubmit = findViewById(R.id.submit);
+Button btnValidate = findViewById(R.id.validate);
+
+ValidatorRealTime validatorRealTime = new ValidatorRealTime();
+
+validatorRealTime.addView(
+        formUserName,
+        new Rule(TypeForm.EMAIL)
+);
+validatorRealTime.addView(
+        new FormInput(formPassParent, formPass),
+        new Rule(TypeForm.TEXT_NO_SYMBOL, 8, "Minimal 8 karakter", "Format salah")
+);
+
+validatorRealTime.build();
+
+validatorRealTime.observer(new ValidatorCallBack() {
+    @Override
+    public void result(boolean isDone) {
+        Log.d(TAG, "result: "+isDone);
+        btnSubmit.setEnabled(isDone);
+    }
+});
+
+btnValidate.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (validatorRealTime.getResult()){
+            Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+        }
     }
 });
 ```
