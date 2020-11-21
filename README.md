@@ -68,20 +68,20 @@ Validator validator = new Validator();
 
 - **Add your form that you want to validate.**
 
-Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
+  - Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
 ```java
 TextInputEditText formNama = = findViewById(R.id.form_nama);
 
 validator.addView(formNama); // Default TypeForm.TEXT
 ```
-Add `EditText` or `TextInputEditText` with custom `Rule`.
+  - Add `EditText` or `TextInputEditText` with custom `Rule`.
 ```java
 validator.addView(
     formNama,
     new Rule(TypeForm.TEXT)
 );
 ```
-Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+  -  `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formNama = = findViewById(R.id.form_nama);
 TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
@@ -90,7 +90,7 @@ validator.addView(
     new FormInput(formNamaParent, formNama)
 ); // Default TypeForm.TEXT
 ```
-Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+  - Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 ```java
 TextInputEditText formNama = = findViewById(R.id.form_nama);
 TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
@@ -212,20 +212,20 @@ ValidatorRealTime validatorRealTime = new ValidatorRealTime();
 
 - **Add your form that you want to validate.**
 
-Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
+  - Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
 
 validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
 ```
-Add `EditText` or `TextInputEditText` with custom `Rule`.
+  - Add `EditText` or `TextInputEditText` with custom `Rule`.
 ```java
 validatorRealTime.addView(
     formUserName,
     new Rule(TypeForm.EMAIL)
 );
 ```
-Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+  - Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
 TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
@@ -234,7 +234,7 @@ validator.addView(
     new FormInput(formUserNameParent, formUserName)
 ); // Default TypeForm.TEXT
 ```
-Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+  - Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
 TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
