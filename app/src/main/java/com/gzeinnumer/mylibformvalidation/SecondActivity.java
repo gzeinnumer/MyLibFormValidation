@@ -29,13 +29,13 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        formUserName = findViewById(R.id.form_nama);
-        formUserNameParent = findViewById(R.id.form_nama_p);
+        formUserName = findViewById(R.id.form_username);
+        formUserNameParent = findViewById(R.id.form_username_p);
 
-        formPass = findViewById(R.id.form_alamat);
-        formPassParent = findViewById(R.id.form_alamat_p);
+        formPass = findViewById(R.id.form_password);
+        formPassParent = findViewById(R.id.form_password_p);
 
-        btnSubmit = findViewById(R.id.btn_submit);
+        btnSubmit = findViewById(R.id.submit);
         btnValidate = findViewById(R.id.validate);
 
         validateData();

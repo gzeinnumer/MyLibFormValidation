@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         formNoHp = findViewById(R.id.form_nohp);
         formNoHpParent = findViewById(R.id.form_nohp_p);
 
-        btnSubmit = findViewById(R.id.btn_submit);
+        btnSubmit = findViewById(R.id.submit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,15 +70,15 @@ public class MainActivity extends AppCompatActivity {
         );
         validator.addView(
                 new FormInput(formEmailParent, formEmail),
-                new Rule(TypeForm.EMAIL, 8)
+                new Rule(TypeForm.EMAIL, 2)
         );
         validator.addView(
                 new FormInput(formUmurParent, formUmur),
-                new Rule(TypeForm.NUMBER, 8, "Umur tidak boleh kosong")
+                new Rule(TypeForm.NUMBER, 2, "Umur tidak boleh kosong")
         );
         validator.addView(
                 new FormInput(formNoHpParent, formNoHp),
-                new Rule(TypeForm.PHONE, 8, "NoHp tidak boleh kosong", "Format NoHp salah")
+                new Rule(TypeForm.PHONE, 2, "NoHp tidak boleh kosong", "Format NoHp salah")
         );
 
         if (validator.validate()) {

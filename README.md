@@ -88,7 +88,7 @@ TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
 
 validator.addView(
     new FormInput(formNamaParent, formNama)
-);
+); // Default TypeForm.TEXT
 ```
 Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 ```java
@@ -105,7 +105,7 @@ validator.addView(
 
 Here some Rule that you can use.
 ```java
-int minLength = 8;
+int minLength = 2;
 String errorLength = "Form tidak boleh kosong";
 String errorFormat = "Format salah";
 
@@ -168,15 +168,15 @@ private void validateData() {
     );
     validator.addView(
             new FormInput(formEmailParent, formEmail),
-            new Rule(TypeForm.EMAIL, 1)
+            new Rule(TypeForm.EMAIL, 2)
     );
     validator.addView(
             new FormInput(formUmurParent, formUmur),
-            new Rule(TypeForm.NUMBER, 1, "Umur tidak boleh kosong")
+            new Rule(TypeForm.NUMBER, 2, "Umur tidak boleh kosong")
     );
     validator.addView(
             new FormInput(formNoHpParent, formNoHp),
-            new Rule(TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah")
+            new Rule(TypeForm.PHONE, 2, "NoHp tidak boleh kosong", "Format NoHp salah")
     );
 
     if (validator.validate()) {
@@ -202,90 +202,109 @@ private void validateData() {
 ---
 
 ### Form Validation RealTime
-You can enable or disable `button` with this step.
 
-Use class  `ValidatorRealTime` to active validate realtime. Add views like [before](https://github.com/gzeinnumer/MyLibFormValidation#validation-form).
+- Import and start validation with make and object from class `ValidatorRealTime`.
 ```java
-List<ValidatorModel> views = new ArrayList<>();
-views.add(new ValidatorModel(edittext, TypeForm.EMAIL));
+//import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
 
-ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
+ValidatorRealTime validatorRealTime = new ValidatorRealTime();
+```
 
+- Add your form that you want to validate.
+
+Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+
+validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
+```
+Add `EditText` or `TextInputEditText` with custom `Rule`.
+```java
+validatorRealTime.addView(
+    formUserName,
+    new Rule(TypeForm.EMAIL)
+);
+```
+Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
+
+validator.addView(
+    new FormInput(formUserNameParent, formUserName)
+); // Default TypeForm.TEXT
+```
+Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
+
+validator.addView(
+    new FormInput(formUserNameParent, formUserName)
+    new Rule(TypeForm.TEXT)
+);
+```
+
+- Custom `Rule`
+
+Here some Rule that you can use.
+```java
+int minLength = 2;
+String errorLength = "Form tidak boleh kosong";
+String errorFormat = "Format salah";
+
+new Rule(TypeForm.TEXT)
+new Rule(TypeForm.TEXT, minLength)
+new Rule(TypeForm.TEXT, minLength, errorLength)
+new Rule(TypeForm.TEXT, minLength, errorLength, errorFormat)
+```
+`TypeForm` available value
+```java
+TypeForm.TEXT               //Support Symbol / Number Decimal
+TypeForm.EMAIL              //Email Format
+TypeForm.NUMBER             //Number Integer
+TypeForm.PHONE              //Phone Number Format With +62
+TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
+```
+
+- Start Validation `RealTime`.
+
+Use `validatorRealTime.build();` to start validation.
+```java
 validatorRealTime.build();
 ```
 
-Use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process `real time`.
+- Validate Result.
+
+Use `validatorRealTime.observer( ... )` to get result of your validate for every input data on your form.
 ```java
-//use observer to get validation state, true/false
 validatorRealTime.observer(new ValidatorCallBack() {
     @Override
     public void result(boolean isDone) {
-        Log.d(TAG, "result: "+isDone);
-        btn1.setEnabled(isDone);
+        //true if validate success
+        //false if validate failed
+
+        btnSubmit.setEnabled(isDone);
     }
 });
 ```
 
-Use `validatorRealTime.getResult()` to get current state validation.
+- Validate data by `OnClickListener`.
 
+Trigger with `OnClickListener`.
 ```java
-//use getResult to get current state, true/false
-if (validatorRealTime.getResult()){
-    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
-} else {
-    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-}
-```
-
-Here is full preview.
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    TextInputEditText formUserName, formPass;
-    Button btn1, btn2;
-
+btnValidate.setOnClickListener(new View.OnClickListener() {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ...
-
-        validateData();
+    public void onClick(View v) {
+        if (validatorRealTime.getResult()){
+            Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        //true if validate success
+        //false if validate failed
     }
-
-    private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-        views.add(new ValidatorModel(formUserName, TypeForm.EMAIL));
-        views.add(new ValidatorModel(formPass, TypeForm.TEXT, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
-
-        ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
-
-        validatorRealTime.build();
-
-        //use observer to get validation state, true/false
-        validatorRealTime.observer(new ValidatorCallBack() {
-            @Override
-            public void result(boolean isDone) {
-                Log.d(TAG, "result: "+isDone);
-                btn1.setEnabled(isDone);
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //use getResult to get current state, true/false
-                if (validatorRealTime.getResult()){
-                    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-}
+});
 ```
 
 **FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.**
@@ -301,6 +320,10 @@ public class MainActivity extends AppCompatActivity {
 ### Version
 - **1.0.0**
   - First Release
+- **1.0.1**
+  - Add TEXT_NO_SYMBOL
+- **1.0.2**
+  - Support TextInputLayout
 
 ---
 
