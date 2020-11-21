@@ -9,19 +9,21 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_nama_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nama">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form1"
+            android:id="@+id/form_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_alamat_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,13 +31,14 @@
         android:hint="Alamat">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form2"
+            android:id="@+id/form_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_nim_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,13 +46,14 @@
         android:hint="NIM">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form3"
+            android:id="@+id/form_nim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_jurusan_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,13 +61,14 @@
         android:hint="Jurusan">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form4"
+            android:id="@+id/form_jurusan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_email_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,13 +76,14 @@
         android:hint="Email">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form5"
+            android:id="@+id/form_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_umur_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,13 +91,14 @@
         android:hint="Umur">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form6"
+            android:id="@+id/form_umur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_nohp_p"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,30 +106,17 @@
         android:hint="No Hp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/form7"
+            android:id="@+id/form_nohp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:text="Submit" />
 
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:text="Submit" />
-
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cancel" />
-    </LinearLayout>
 </LinearLayout>

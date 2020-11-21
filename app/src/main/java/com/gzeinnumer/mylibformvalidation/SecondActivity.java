@@ -9,19 +9,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.gzeinnumer.mylibformvalidator.Validator;
+import com.google.android.material.textfield.TextInputLayout;
 import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 import com.gzeinnumer.mylibformvalidator.helper.ValidatorCallBack;
-import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.gzeinnumer.mylibformvalidator.model.FormInput;
+import com.gzeinnumer.mylibformvalidator.model.Rule;
 
 public class SecondActivity extends AppCompatActivity {
 
     TextInputEditText formUserName, formPass;
-    Button btn1, btn2;
+    TextInputLayout formUserNameParent, formPassParent;
+    Button btnSubmit, btnValidate;
 
     private static final String TAG = "SecondActivity";
 
@@ -30,23 +29,29 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        formUserName = findViewById(R.id.form1);
-        formPass = findViewById(R.id.form2);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
+        formUserName = findViewById(R.id.form_nama);
+        formUserNameParent = findViewById(R.id.form_nama_p);
 
-//        String str = "asafas!a";
-//
-//        Log.d(TAG, "onCreate: "+ Validator.getSpecialCharacterCount(str));
+        formPass = findViewById(R.id.form_alamat);
+        formPassParent = findViewById(R.id.form_alamat_p);
+
+        btnSubmit = findViewById(R.id.btn_submit);
+        btnValidate = findViewById(R.id.validate);
+
         validateData();
     }
 
     private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-        views.add(new ValidatorModel(formUserName, TypeForm.EMAIL));
-        views.add(new ValidatorModel(formPass, TypeForm.TEXT_NO_SYMBOL, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
+        ValidatorRealTime validatorRealTime = new ValidatorRealTime();
 
-        ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
+        validatorRealTime.addView(
+                formUserName,
+                new Rule(TypeForm.EMAIL)
+        );
+        validatorRealTime.addView(
+                new FormInput(formPassParent, formPass),
+                new Rule(TypeForm.TEXT_NO_SYMBOL, 8, "Minimal 8 karakter", "Format salah")
+        );
 
         validatorRealTime.build();
 
@@ -54,11 +59,11 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void result(boolean isDone) {
                 Log.d(TAG, "result: "+isDone);
-                btn1.setEnabled(isDone);
+                btnSubmit.setEnabled(isDone);
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validatorRealTime.getResult()){

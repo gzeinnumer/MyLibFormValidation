@@ -6,7 +6,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.1-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.2-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -59,91 +59,130 @@ dependencies {
 
 ### Validation Form
 
-You can add view that you want to validate to `List` with model `ValidatorModel`.
-
+- Import and start validation with make and object from class `Validator`.
 ```java
-EditText edittext = findViewById(R.id.edittext);
+//import com.gzeinnumer.mylibformvalidator.Validator;
+
+Validator validator = new Validator();
+```
+
+- Add your form that you want to validate.
+
+Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+
+validator.addView(formNama); // Default TypeForm.TEXT
+```
+Add `EditText` or `TextInputEditText` with custom `Rule`.
+```java
+validator.addView(
+    formNama,
+    new Rule(TypeForm.TEXT)
+);
+```
+Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
+
+validator.addView(
+    new FormInput(formNamaParent, formNama)
+);
+```
+Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
+
+validator.addView(
+    new FormInput(formNamaParent, formNama),
+    new Rule(TypeForm.TEXT)
+);
+```
+
+- Custom `Rule`
+
+Here some Rule that you can use.
+```java
 int minLength = 8;
 String errorLength = "Form tidak boleh kosong";
 String errorFormat = "Format salah";
 
-List<ValidatorModel> views = new ArrayList<>();
-
-views.add(new ValidatorModel(edittext));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT,   minLength));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT_NO_SYMBOL,   minLength, errorLength));
-views.add(new ValidatorModel(edittext, TypeForm.EMAIL,  minLength, errorLength, errorFormat));
-views.add(new ValidatorModel(edittext, TypeForm.NUMBER, minLength, errorLength, errorFormat));
-views.add(new ValidatorModel(edittext, TypeForm.PHONE,  minLength, errorLength, errorFormat));
-
-//TypeForm avaliable value
-//TypeForm.TEXT
-//TypeForm.EMAIL
-//TypeForm.NUMBER
-//TypeForm.PHONE
-//TypeForm.TEXT_NO_SYMBOL
+new Rule(TypeForm.TEXT)
+new Rule(TypeForm.TEXT, minLength)
+new Rule(TypeForm.TEXT, minLength, errorLength)
+new Rule(TypeForm.TEXT, minLength, errorLength, errorFormat)
+```
+`TypeForm` available value
+```java
+TypeForm.TEXT               //Support Symbol / Number Decimal
+TypeForm.EMAIL              //Email Format
+TypeForm.NUMBER             //Number Integer
+TypeForm.PHONE              //Phone Number Format With +62
+TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
 
-Use class `Validator` to validate your form data. And add your views.
+- Validate Result.
 
+Use `validator.validate()` to get result of your validate.
 ```java
-Validator validator = new Validator();
-validator.addAllView(views);
+boolean result = validator.validate();
+//true if validate success
+//false if validate failed
 ```
 
-Use `validator.validate()` to validate your data.
+- Validate data by `OnClickListener`.
 
+Trigger with `OnClickListener`.
 ```java
-if (validator.validate()) {
-    Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-} else {
-    Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+
+    ... findViewById ...
+
+    btnSubmit.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            validateData();
+        }
+    });
 }
 ```
-
-Here is full preview.
-
+Validate Proses will be like this.
 ```java
-public class MainActivity extends AppCompatActivity {
+private void validateData() {
+    Validator validator = new Validator();
 
-    TextInputEditText formNama, formAlamat, formNim, formJurusan, formEmail, formUmur, formNoHp;
-    Button btn1, btn2;
+    validator.addView(formNama);
+    validator.addView(
+            formAlamat,
+            new Rule(TypeForm.TEXT)
+    );
+    validator.addView(
+            new FormInput(formNimParent, formNim)
+    );
+    validator.addView(
+            new FormInput(formJurusanParent, formJurusan),
+            new Rule(TypeForm.TEXT_NO_SYMBOL)
+    );
+    validator.addView(
+            new FormInput(formEmailParent, formEmail),
+            new Rule(TypeForm.EMAIL, 1)
+    );
+    validator.addView(
+            new FormInput(formUmurParent, formUmur),
+            new Rule(TypeForm.NUMBER, 1, "Umur tidak boleh kosong")
+    );
+    validator.addView(
+            new FormInput(formNoHpParent, formNoHp),
+            new Rule(TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah")
+    );
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ...
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateData();
-            }
-        });
-    }
-
-    private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-
-        views.add(new ValidatorModel(formNama));
-        views.add(new ValidatorModel(formAlamat, TypeForm.TEXT));
-        views.add(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT_NO_SYMBOL, 1, "Jurusan tidak boleh kosong"));
-        views.add(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
-        views.add(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
-        views.add(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));
-
-        Validator validator = new Validator();
-
-        validator.addAllView(views);
-
-        if (validator.validate()) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-        }
+    if (validator.validate()) {
+        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+    } else {
+        Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
     }
 }
 ```

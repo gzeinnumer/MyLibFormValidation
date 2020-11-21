@@ -8,35 +8,44 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
+import com.google.android.material.textfield.TextInputLayout;
 import com.gzeinnumer.mylibformvalidator.Validator;
-import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
+import com.gzeinnumer.mylibformvalidator.model.FormInput;
+import com.gzeinnumer.mylibformvalidator.model.Rule;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextInputEditText formNama, formAlamat, formNim, formJurusan, formEmail, formUmur, formNoHp;
-    Button btn1, btn2;
+    TextInputEditText formNama, formAlamat, formNim,
+            formJurusan, formEmail, formUmur, formNoHp;
+    TextInputLayout formNamaParent, formAlamatParent, formNimParent,
+            formJurusanParent, formEmailParent, formUmurParent, formNoHpParent;
+
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        formNama = findViewById(R.id.form1);
-        formAlamat = findViewById(R.id.form2);
-        formNim = findViewById(R.id.form3);
-        formJurusan = findViewById(R.id.form4);
-        formEmail = findViewById(R.id.form5);
-        formUmur = findViewById(R.id.form6);
-        formNoHp = findViewById(R.id.form7);
+        formNama = findViewById(R.id.form_nama);
+        formNamaParent = findViewById(R.id.form_nama_p);
+        formAlamat = findViewById(R.id.form_alamat);
+        formAlamatParent = findViewById(R.id.form_alamat_p);
+        formNim = findViewById(R.id.form_nim);
+        formNimParent = findViewById(R.id.form_nim_p);
+        formJurusan = findViewById(R.id.form_jurusan);
+        formJurusanParent = findViewById(R.id.form_jurusan_p);
+        formEmail = findViewById(R.id.form_email);
+        formEmailParent = findViewById(R.id.form_email_p);
+        formUmur = findViewById(R.id.form_umur);
+        formUmurParent = findViewById(R.id.form_umur_p);
+        formNoHp = findViewById(R.id.form_nohp);
+        formNoHpParent = findViewById(R.id.form_nohp_p);
 
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
+        btnSubmit = findViewById(R.id.btn_submit);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validateData();
@@ -45,19 +54,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-
-        views.add(new ValidatorModel(formNama));
-        views.add(new ValidatorModel(formAlamat, TypeForm.TEXT));
-        views.add(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT_NO_SYMBOL, 1, "Jurusan tidak boleh kosong"));
-        views.add(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
-        views.add(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
-        views.add(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));
-
         Validator validator = new Validator();
 
-        validator.addAllView(views);
+        validator.addView(formNama);
+        validator.addView(
+                formAlamat,
+                new Rule(TypeForm.TEXT)
+        );
+        validator.addView(
+                new FormInput(formNimParent, formNim)
+        );
+        validator.addView(
+                new FormInput(formJurusanParent, formJurusan),
+                new Rule(TypeForm.TEXT_NO_SYMBOL)
+        );
+        validator.addView(
+                new FormInput(formEmailParent, formEmail),
+                new Rule(TypeForm.EMAIL, 8)
+        );
+        validator.addView(
+                new FormInput(formUmurParent, formUmur),
+                new Rule(TypeForm.NUMBER, 8, "Umur tidak boleh kosong")
+        );
+        validator.addView(
+                new FormInput(formNoHpParent, formNoHp),
+                new Rule(TypeForm.PHONE, 8, "NoHp tidak boleh kosong", "Format NoHp salah")
+        );
 
         if (validator.validate()) {
             Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();

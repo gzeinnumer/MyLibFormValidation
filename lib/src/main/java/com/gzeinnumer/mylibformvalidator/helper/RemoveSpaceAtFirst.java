@@ -4,13 +4,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class RemoveSpaceAtFirst implements TextWatcher {
     EditText editText;
+    TextInputLayout parent;
 
-    public RemoveSpaceAtFirst(EditText ed) {
+    public RemoveSpaceAtFirst(EditText ed, TextInputLayout parent) {
         this.editText = ed;
+        this.parent = parent;
     }
-
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -27,6 +30,9 @@ public class RemoveSpaceAtFirst implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable s) {
-
+        if (parent != null){
+            parent.setError(null);
+            parent.setErrorEnabled(false);
+        }
     }
 }
