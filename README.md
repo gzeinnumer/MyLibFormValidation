@@ -66,6 +66,7 @@ dependencies {
 Validator validator = new Validator();
 ```
 
+#
 - **Add your form that you want to validate.**
 
 Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
@@ -101,6 +102,7 @@ validator.addView(
 );
 ```
 
+#
 - **Custom `Rule`.**
 
 Here some `Rule` that you can use.
@@ -123,6 +125,7 @@ TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
 
+#
 - **Validate Result.**
 
 Use `validator.validate()` to get result of your validate.
@@ -132,6 +135,7 @@ boolean result = validator.validate();
 //false if validate failed
 ```
 
+#
 - **Validate data by `OnClickListener`.**
 
 Trigger with `OnClickListener`.
@@ -210,6 +214,7 @@ private void validateData() {
 ValidatorRealTime validatorRealTime = new ValidatorRealTime();
 ```
 
+#
 - **Add your form that you want to validate.**
 
 Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
@@ -245,6 +250,7 @@ validator.addView(
 );
 ```
 
+#
 - **Custom `Rule`.**
 
 Here some `Rule` that you can use.
@@ -267,6 +273,7 @@ TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
 
+#
 - **Start Validation `RealTime`.**
 
 Use `validatorRealTime.build();` to start validation.
@@ -274,6 +281,7 @@ Use `validatorRealTime.build();` to start validation.
 validatorRealTime.build();
 ```
 
+#
 - **Validate Result.**
 
 Use `validatorRealTime.observer( ... );` to get result of your validate for every input data on your form.
@@ -289,6 +297,7 @@ validatorRealTime.observer(new ValidatorCallBack() {
 });
 ```
 
+#
 - **Validate data by `OnClickListener`.**
 
 Trigger with `OnClickListener`.
