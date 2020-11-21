@@ -103,7 +103,7 @@ validator.addView(
 
 - Custom `Rule`
 
-Here some Rule that you can use.
+Here some `Rule` that you can use.
 ```java
 int minLength = 2;
 String errorLength = "Form tidak boleh kosong";
@@ -241,13 +241,13 @@ TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
 
 validator.addView(
     new FormInput(formUserNameParent, formUserName)
-    new Rule(TypeForm.TEXT)
+    new Rule(TypeForm.EMAIL)
 );
 ```
 
 - Custom `Rule`
 
-Here some Rule that you can use.
+Here some `Rule` that you can use.
 ```java
 int minLength = 2;
 String errorLength = "Form tidak boleh kosong";
