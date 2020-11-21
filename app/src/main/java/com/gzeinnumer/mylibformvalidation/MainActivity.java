@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         views.add(new ValidatorModel(formNama));
         views.add(new ValidatorModel(formAlamat, TypeForm.TEXT));
         views.add(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT, 1, "Jurusan tidak boleh kosong"));
+        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT_NO_SYMBOL, 1, "Jurusan tidak boleh kosong"));
         views.add(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
         views.add(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
         views.add(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));

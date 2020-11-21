@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.gzeinnumer.mylibformvalidator.Validator;
 import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 import com.gzeinnumer.mylibformvalidator.helper.ValidatorCallBack;
@@ -34,14 +35,16 @@ public class SecondActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
-        btn1.setEnabled(true);
+//        String str = "asafas!a";
+//
+//        Log.d(TAG, "onCreate: "+ Validator.getSpecialCharacterCount(str));
         validateData();
     }
 
     private void validateData() {
         List<ValidatorModel> views = new ArrayList<>();
         views.add(new ValidatorModel(formUserName, TypeForm.EMAIL));
-        views.add(new ValidatorModel(formPass, TypeForm.TEXT, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
+        views.add(new ValidatorModel(formPass, TypeForm.TEXT_NO_SYMBOL, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
 
         ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
 
@@ -51,7 +54,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void result(boolean isDone) {
                 Log.d(TAG, "result: "+isDone);
-//                btn1.setEnabled(isDone);
+                btn1.setEnabled(isDone);
             }
         });
 
