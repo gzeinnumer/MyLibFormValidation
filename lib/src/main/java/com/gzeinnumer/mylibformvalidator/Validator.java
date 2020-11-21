@@ -1,6 +1,7 @@
 package com.gzeinnumer.mylibformvalidator;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.EditText;
 
@@ -10,12 +11,17 @@ import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validator {
 
+    private static final String TAG = "Validator";
+
     private List<ValidatorModel> views = new ArrayList<>();
 
-    public Validator() {}
+    public Validator() {
+    }
 
     public void addAllView(List<ValidatorModel> views) {
         this.views = views;
@@ -48,7 +54,7 @@ public class Validator {
                 continue;
             }
             if (view.getRule().getTypeForm() == TypeForm.EMAIL) {
-                if (!isValidEmail(ed.getText().toString())){
+                if (!isValidEmail(ed.getText().toString())) {
                     ed.setError(errorFormat);
                     isValidate = false;
                 }
@@ -62,8 +68,13 @@ public class Validator {
                     ed.setError(errorFormat);
                     isValidate = false;
                 }
-            } else if (view.getRule().getTypeForm() == TypeForm.TEXT){
+            } else if (view.getRule().getTypeForm() == TypeForm.TEXT) {
                 if (ed.getText().toString().length() < minLength) {
+                    ed.setError(errorFormat);
+                    isValidate = false;
+                }
+            } else if (view.getRule().getTypeForm() == TypeForm.TEXT_NO_SYMBOL) {
+                if (isValidNoSymbol(ed.getText().toString())) {
                     ed.setError(errorFormat);
                     isValidate = false;
                 }
@@ -85,5 +96,16 @@ public class Validator {
 
     private static boolean isValidPhone(String number) {
         return android.util.Patterns.PHONE.matcher(number).matches();
+    }
+
+    private static boolean isValidNoSymbol(String s) {
+        if (s == null || s.trim().isEmpty()) {
+            Log.d(TAG, "Incorrect format of string");
+            return false;
+        }
+        Pattern p = Pattern.compile("[^A-Za-z0-9]");
+        Matcher m = p.matcher(s);
+
+        return m.find();
     }
 }
