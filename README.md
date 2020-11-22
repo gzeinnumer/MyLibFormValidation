@@ -1,12 +1,12 @@
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example6.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="300"/> |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg" width="300"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example10.jpg" width="300"/> |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|---|
 
 <h1 align="center">
   MyLibFormValidation - Easy Validation
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.1-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.2-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -37,8 +37,8 @@ dependencies {
 ```
 
 ## Feature List
-- [x] [Validation Form](#validationform)
-- [x] [Validation Form RealTime](#validationformrealtime)
+- [x] [Validation Form](#validation-form)
+- [x] [Validation Form RealTime](#validation-form-realtime)
 
 ## Tech stack and 3rd library
 - Material.io ([docs](https://material.io/develop/android/docs/getting-started))
@@ -59,94 +59,179 @@ dependencies {
 
 ### Validation Form
 
-You can add view that you want to validate to `List` with model `ValidatorModel`.
-
+- **Import and start validation with make and object from class `Validator`.**
 ```java
-EditText edittext = findViewById(R.id.edittext);
-int minLength = 8;
+//import com.gzeinnumer.mylibformvalidator.Validator;
+
+Validator validator = new Validator();
+```
+
+#
+- **Add your form that you want to validate.**
+
+Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+
+validator.addView(formNama); // Default TypeForm.TEXT
+```
+Add `EditText` or `TextInputEditText` with custom `Rule`.
+```java
+validator.addView(
+    formNama,
+    new Rule(TypeForm.TEXT)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>
+<p>
+Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
+
+validator.addView(
+    new FormInput(formNamaParent, formNama)
+); // Default TypeForm.TEXT
+```
+Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+```java
+TextInputEditText formNama = = findViewById(R.id.form_nama);
+TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
+
+validator.addView(
+    new FormInput(formNamaParent, formNama),
+    new Rule(TypeForm.TEXT)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>
+<p>
+
+#
+- **Custom `Rule`.**
+
+Here some `Rule` that you can use.
+```java
+int minLength = 2;
 String errorLength = "Form tidak boleh kosong";
 String errorFormat = "Format salah";
 
-List<ValidatorModel> views = new ArrayList<>();
+new Rule(TypeForm.TEXT)
+new Rule(TypeForm.TEXT, minLength)
+new Rule(TypeForm.TEXT, minLength, errorLength)
+new Rule(TypeForm.TEXT, minLength, errorLength, errorFormat)
+```
+`TypeForm` available value
+```java
+TypeForm.TEXT               //Support Symbol / Number Decimal
+TypeForm.EMAIL              //Email Format
+TypeForm.NUMBER             //Number Integer
+TypeForm.PHONE              //Phone Number Format With +62
+TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
+```
+Example :
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        new FormInput(formNamaParent, formNama),
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>
+<p>
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        formNama,
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>
+<p>
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example18.jpg" width="400"/>
+<p>
 
-views.add(new ValidatorModel(edittext));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT,   minLength));
-views.add(new ValidatorModel(edittext, TypeForm.TEXT_NO_SYMBOL,   minLength, errorLength));
-views.add(new ValidatorModel(edittext, TypeForm.EMAIL,  minLength, errorLength, errorFormat));
-views.add(new ValidatorModel(edittext, TypeForm.NUMBER, minLength, errorLength, errorFormat));
-views.add(new ValidatorModel(edittext, TypeForm.PHONE,  minLength, errorLength, errorFormat));
+#
+- **Validate Result.**
 
-//TypeForm avaliable value
-//TypeForm.TEXT
-//TypeForm.EMAIL
-//TypeForm.NUMBER
-//TypeForm.PHONE
-//TypeForm.TEXT_NO_SYMBOL
+Use `validator.validate()` to get result of your validate.
+```java
+boolean result = validator.validate();
+//true if validate success
+//false if validate failed
 ```
 
-Use class `Validator` to validate your form data. And add your views.
+#
+- **Validate data by `OnClickListener`.**
 
+Trigger with `OnClickListener`.
 ```java
-Validator validator = new Validator();
-validator.addAllView(views);
-```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
 
-Use `validator.validate()` to validate your data.
+    ... findViewById ...
 
-```java
-if (validator.validate()) {
-    Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-} else {
-    Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-}
-```
-
-Here is full preview.
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    TextInputEditText formNama, formAlamat, formNim, formJurusan, formEmail, formUmur, formNoHp;
-    Button btn1, btn2;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ...
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateData();
-            }
-        });
-    }
-
-    private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-
-        views.add(new ValidatorModel(formNama));
-        views.add(new ValidatorModel(formAlamat, TypeForm.TEXT));
-        views.add(new ValidatorModel(formNim, TypeForm.TEXT, 10));
-        views.add(new ValidatorModel(formJurusan, TypeForm.TEXT_NO_SYMBOL, 1, "Jurusan tidak boleh kosong"));
-        views.add(new ValidatorModel(formEmail, TypeForm.EMAIL, 1, "Email tidak boleh kosong", "Format email salah"));
-        views.add(new ValidatorModel(formUmur, TypeForm.NUMBER, 1, "Umur tidak boleh kosong", "Format number salah"));
-        views.add(new ValidatorModel(formNoHp, TypeForm.PHONE, 1, "NoHp tidak boleh kosong", "Format NoHp salah"));
-
-        Validator validator = new Validator();
-
-        validator.addAllView(views);
-
-        if (validator.validate()) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
+    btnSubmit.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            validateData();
         }
+    });
+}
+```
+Validate Proses will be like this.
+```java
+TextInputEditText formNama, formAlamat, formNim,
+    formJurusan, formEmail, formUmur, formNoHp;
+TextInputLayout formNamaParent, formAlamatParent, formNimParent,
+    formJurusanParent, formEmailParent, formUmurParent, formNoHpParent;
+
+private void validateData() {
+    Validator validator = new Validator();
+
+    validator.addView(formNama);
+    validator.addView(
+            formAlamat,
+            new Rule(TypeForm.TEXT)
+    );
+    validator.addView(
+            new FormInput(formNimParent, formNim)
+    );
+    validator.addView(
+            new FormInput(formJurusanParent, formJurusan),
+            new Rule(TypeForm.TEXT_NO_SYMBOL)
+    );
+    validator.addView(
+            new FormInput(formEmailParent, formEmail),
+            new Rule(TypeForm.EMAIL, 2)
+    );
+    validator.addView(
+            new FormInput(formUmurParent, formUmur),
+            new Rule(TypeForm.NUMBER, 2, "Umur tidak boleh kosong")
+    );
+    validator.addView(
+            new FormInput(formNoHpParent, formNoHp),
+            new Rule(TypeForm.PHONE, 2, "NoHp tidak boleh kosong", "Format NoHp salah")
+    );
+
+    if (validator.validate()) {
+        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+    } else {
+        Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
     }
 }
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>
+<p>
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
@@ -162,91 +247,188 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-### Form Validation RealTime
-You can enable or disable `button` with this step.
+### Validation Form RealTime
 
-Use class  `ValidatorRealTime` to active validate realtime. Add views like [before](https://github.com/gzeinnumer/MyLibFormValidation#validation-form).
+- **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
-List<ValidatorModel> views = new ArrayList<>();
-views.add(new ValidatorModel(edittext, TypeForm.EMAIL));
+//import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
 
-ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
+ValidatorRealTime validatorRealTime = new ValidatorRealTime();
+```
 
+#
+- **Add your form that you want to validate.**
+
+Add `EditText` or `TextInputEditText` to `validatorRealTime` with `addView(view)`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+
+validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example19.jpg" width="400"/>
+<p>
+Add `EditText` or `TextInputEditText` with custom `Rule`.
+```java
+validatorRealTime.addView(
+    formUserName,
+    new Rule(TypeForm.EMAIL)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example20.jpg" width="400"/>
+<p>
+Add `EditText` or `TextInputEditText` with `TextInputLayout`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
+
+validator.addView(
+    new FormInput(formUserNameParent, formUserName)
+); // Default TypeForm.TEXT
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example21.jpg" width="400"/>
+<p>
+Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
+```java
+TextInputEditText formUserName = = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
+
+validator.addView(
+    new FormInput(formUserNameParent, formUserName)
+    new Rule(TypeForm.EMAIL)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example22.jpg" width="400"/>
+<p>
+
+#
+- **Custom `Rule`.**
+
+Here some `Rule` that you can use.
+```java
+int minLength = 2;
+String errorLength = "Form tidak boleh kosong";
+String errorFormat = "Format salah";
+
+new Rule(TypeForm.TEXT)
+new Rule(TypeForm.TEXT, minLength)
+new Rule(TypeForm.TEXT, minLength, errorLength)
+new Rule(TypeForm.TEXT, minLength, errorLength, errorFormat)
+```
+`TypeForm` available value
+```java
+TypeForm.TEXT               //Support Symbol / Number Decimal
+TypeForm.EMAIL              //Email Format
+TypeForm.NUMBER             //Number Integer
+TypeForm.PHONE              //Phone Number Format With +62
+TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
+```
+Example :
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        formNama,
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example23.jpg" width="400"/>
+<p>
+
+#
+- **Start Validation `RealTime`.**
+
+Use `validatorRealTime.build();` to start validation.
+```java
 validatorRealTime.build();
 ```
 
-Use `validatorRealTime.observer(new ValidatorCallBack() {});` to get value from you validate process `real time`.
+#
+- **Validate Result.**
+
+Use `validatorRealTime.observer( ... );` to get result of your validate for every input data on your form.
 ```java
-//use observer to get validation state, true/false
 validatorRealTime.observer(new ValidatorCallBack() {
     @Override
     public void result(boolean isDone) {
-        Log.d(TAG, "result: "+isDone);
-        btn1.setEnabled(isDone);
+        //true if validate success
+        //false if validate failed
+
+        btnSubmit.setEnabled(isDone);
+    }
+});
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>
+<p>
+
+#
+- **Validate data by `OnClickListener`.**
+
+Trigger with `OnClickListener`.
+```java
+btnValidate.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (validatorRealTime.getResult()){
+            Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        //true if validate success
+        //false if validate failed
     }
 });
 ```
 
-Use `validatorRealTime.getResult()` to get current state validation.
-
+#
+- Preview Code
 ```java
-//use getResult to get current state, true/false
-if (validatorRealTime.getResult()){
-    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
-} else {
-    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-}
-```
+TextInputEditText formUserName = findViewById(R.id.form_username);
+TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
 
-Here is full preview.
+TextInputEditText formPass = findViewById(R.id.form_password);
+TextInputLayout formPassParent = findViewById(R.id.form_password_p);
 
-```java
-public class MainActivity extends AppCompatActivity {
+Button btnSubmit = findViewById(R.id.submit);
+Button btnValidate = findViewById(R.id.validate);
 
-    TextInputEditText formUserName, formPass;
-    Button btn1, btn2;
+ValidatorRealTime validatorRealTime = new ValidatorRealTime();
 
+validatorRealTime.addView(
+        formUserName,
+        new Rule(TypeForm.EMAIL)
+);
+validatorRealTime.addView(
+        new FormInput(formPassParent, formPass),
+        new Rule(TypeForm.TEXT_NO_SYMBOL, 8, "Minimal 8 karakter", "Format salah")
+);
+
+validatorRealTime.build();
+
+validatorRealTime.observer(new ValidatorCallBack() {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ...
-
-        validateData();
+    public void result(boolean isDone) {
+        Log.d(TAG, "result: "+isDone);
+        btnSubmit.setEnabled(isDone);
     }
+});
 
-    private void validateData() {
-        List<ValidatorModel> views = new ArrayList<>();
-        views.add(new ValidatorModel(formUserName, TypeForm.EMAIL));
-        views.add(new ValidatorModel(formPass, TypeForm.TEXT, 8, "Password tidak boleh kosong", "Minimal 8 karakter"));
-
-        ValidatorRealTime validatorRealTime = new ValidatorRealTime(views);
-
-        validatorRealTime.build();
-
-        //use observer to get validation state, true/false
-        validatorRealTime.observer(new ValidatorCallBack() {
-            @Override
-            public void result(boolean isDone) {
-                Log.d(TAG, "result: "+isDone);
-                btn1.setEnabled(isDone);
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //use getResult to get current state, true/false
-                if (validatorRealTime.getResult()){
-                    Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+btnValidate.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (validatorRealTime.getResult()){
+            Toast.makeText(SecondActivity.this, "Success", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(SecondActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+        }
     }
-}
+});
 ```
 
 **FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.**
@@ -262,6 +444,10 @@ public class MainActivity extends AppCompatActivity {
 ### Version
 - **1.0.0**
   - First Release
+- **1.0.1**
+  - Add TEXT_NO_SYMBOL
+- **1.0.2**
+  - Support TextInputLayout
 
 ---
 
