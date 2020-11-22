@@ -6,7 +6,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.2-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.4-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -112,6 +112,14 @@ validator.addView(
 <p>
 
 #
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator..removeView(formNama);
+```
+
+#
 - **Custom `Rule`.**
 
 Here some `Rule` that you can use.
@@ -144,9 +152,8 @@ validator.addView(
 );
 ```
 
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>
-<p>
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>|
+|---|---|
 
 ```java
 int minLength = 8;
@@ -158,9 +165,9 @@ validator.addView(
 );
 ```
 
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>
-<p>
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>|
+|---|---|
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example18.jpg" width="400"/>
 <p>
@@ -235,10 +242,6 @@ private void validateData() {
     }
 }
 ```
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>
-<p>
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
@@ -319,6 +322,14 @@ validator.addView(
 <p>
 
 #
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator..removeView(formUserName);
+```
+
+#
 - **Custom `Rule`.**
 
 Here some `Rule` that you can use.
@@ -379,9 +390,8 @@ validatorRealTime.observer(new ValidatorCallBack() {
 });
 ```
 
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>
-<p>
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>|
+|---|---|
 
 #
 - **Validate data by `OnClickListener`.**
@@ -462,7 +472,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
   - First Release
 - **1.0.1**
   - Add TEXT_NO_SYMBOL
-- **1.0.2**
+- **1.0.4**
   - Support TextInputLayout
 
 ---

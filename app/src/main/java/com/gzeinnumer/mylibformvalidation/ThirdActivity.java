@@ -29,7 +29,7 @@ public class ThirdActivity extends AppCompatActivity {
         formUserName = findViewById(R.id.form_nama);
         formUserNameParent = findViewById(R.id.form_nama_p);
 
-        btnSubmit = findViewById(R.id.submit);
+        btnSubmit = findViewById(R.id.submit_t);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +45,7 @@ public class ThirdActivity extends AppCompatActivity {
                 new FormInput(formUserNameParent, formUserName),
                 new Rule(TypeForm.TEXT_NO_SYMBOL,8,"Minimal 8 Charakter", "Tidak Boleh Mengunakan Symbol")
         );
+        //validator.removeView(formUserName);
 
         if (validator.validate()) {
             Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
