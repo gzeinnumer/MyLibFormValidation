@@ -82,6 +82,9 @@ validator.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>
+<p>
 Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formNama = = findViewById(R.id.form_nama);
@@ -101,6 +104,9 @@ validator.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>
+<p>
 
 #
 - **Custom `Rule`.**
@@ -124,6 +130,34 @@ TypeForm.NUMBER             //Number Integer
 TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
+Example :
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        new FormInput(formNamaParent, formNama),
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>
+<p>
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        formNama,
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>
+<p>
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example18.jpg" width="400"/>
+<p>
 
 #
 - **Validate Result.**
@@ -195,6 +229,9 @@ private void validateData() {
     }
 }
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>
+<p>
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
@@ -228,6 +265,9 @@ TextInputEditText formUserName = = findViewById(R.id.form_username);
 
 validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example19.jpg" width="400"/>
+<p>
 Add `EditText` or `TextInputEditText` with custom `Rule`.
 ```java
 validatorRealTime.addView(
@@ -235,6 +275,9 @@ validatorRealTime.addView(
     new Rule(TypeForm.EMAIL)
 );
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example20.jpg" width="400"/>
+<p>
 Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
@@ -244,6 +287,9 @@ validator.addView(
     new FormInput(formUserNameParent, formUserName)
 ); // Default TypeForm.TEXT
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example21.jpg" width="400"/>
+<p>
 Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
@@ -254,6 +300,9 @@ validator.addView(
     new Rule(TypeForm.EMAIL)
 );
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example22.jpg" width="400"/>
+<p>
 
 #
 - **Custom `Rule`.**
@@ -277,6 +326,19 @@ TypeForm.NUMBER             //Number Integer
 TypeForm.PHONE              //Phone Number Format With +62
 TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 ```
+Example :
+```java
+int minLength = 8;
+String errorLength = "Minimal 8 Charakter";
+String errorFormat = "Tidak Boleh Mengunakan Symbol";
+validator.addView(
+        formNama,
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+);
+```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example23.jpg" width="400"/>
+<p>
 
 #
 - **Start Validation `RealTime`.**
@@ -301,6 +363,9 @@ validatorRealTime.observer(new ValidatorCallBack() {
     }
 });
 ```
+<p align="center">
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>
+<p>
 
 #
 - **Validate data by `OnClickListener`.**
