@@ -116,7 +116,7 @@ validator.addView(
 
 Put your `EditText` or `TextInputEditText` to `removeView(view)`.
 ```java
-validator..removeView(formNama);
+validator.removeView(formNama);
 ```
 
 #
@@ -326,7 +326,7 @@ validator.addView(
 
 Put your `EditText` or `TextInputEditText` to `removeView(view)`.
 ```java
-validator..removeView(formUserName);
+validator.removeView(formUserName);
 ```
 
 #
