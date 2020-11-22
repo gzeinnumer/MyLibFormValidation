@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 new Rule(TypeForm.PHONE, 2, "NoHp tidak boleh kosong", "Format NoHp salah")
         );
 
+        //validator.removeView(formNoHp);
+
         if (validator.validate()) {
             Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
         } else {

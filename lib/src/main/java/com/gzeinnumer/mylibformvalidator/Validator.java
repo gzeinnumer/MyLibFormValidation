@@ -139,6 +139,15 @@ public class Validator {
         views.add(new FormBase(formInput, rules));
     }
 
+    public void removeView(EditText view){
+        List<EditText> list = new ArrayList<>();
+        for(int i=0; i<views.size(); i++){
+            list.add(views.get(i).getFormInput().getEditText());
+        }
+        int index = list.indexOf(view);
+        views.remove(index);
+    }
+
     public void addView(EditText formInput, Rule rules) {
         views.add(new FormBase(formInput, rules));
     }
