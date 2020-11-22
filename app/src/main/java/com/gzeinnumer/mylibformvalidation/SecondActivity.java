@@ -52,6 +52,7 @@ public class SecondActivity extends AppCompatActivity {
                 new FormInput(formPassParent, formPass),
                 new Rule(TypeForm.TEXT_NO_SYMBOL, 8, "Minimal 8 karakter", "Format salah")
         );
+        //validatorRealTime.removeView(formUserName);
 
         validatorRealTime.build();
 

@@ -112,6 +112,14 @@ validator.addView(
 <p>
 
 #
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator..removeView(formNama);
+```
+
+#
 - **Custom `Rule`.**
 
 Here some `Rule` that you can use.
@@ -312,6 +320,14 @@ validator.addView(
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example22.jpg" width="400"/>
 <p>
+
+#
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator..removeView(formUserName);
+```
 
 #
 - **Custom `Rule`.**
