@@ -82,9 +82,11 @@ validator.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>
 <p>
+
 Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formNama = = findViewById(R.id.form_nama);
@@ -104,6 +106,7 @@ validator.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>
 <p>
@@ -140,9 +143,11 @@ validator.addView(
         new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>
 <p>
+
 ```java
 int minLength = 8;
 String errorLength = "Minimal 8 Charakter";
@@ -152,6 +157,7 @@ validator.addView(
         new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>
 <p>
@@ -229,6 +235,7 @@ private void validateData() {
     }
 }
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>
 <p>
@@ -265,9 +272,11 @@ TextInputEditText formUserName = = findViewById(R.id.form_username);
 
 validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example19.jpg" width="400"/>
 <p>
+
 Add `EditText` or `TextInputEditText` with custom `Rule`.
 ```java
 validatorRealTime.addView(
@@ -275,9 +284,11 @@ validatorRealTime.addView(
     new Rule(TypeForm.EMAIL)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example20.jpg" width="400"/>
 <p>
+
 Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
@@ -287,9 +298,11 @@ validator.addView(
     new FormInput(formUserNameParent, formUserName)
 ); // Default TypeForm.TEXT
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example21.jpg" width="400"/>
 <p>
+
 Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 ```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
@@ -300,6 +313,7 @@ validator.addView(
     new Rule(TypeForm.EMAIL)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example22.jpg" width="400"/>
 <p>
@@ -336,6 +350,7 @@ validator.addView(
         new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
 );
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example23.jpg" width="400"/>
 <p>
@@ -363,6 +378,7 @@ validatorRealTime.observer(new ValidatorCallBack() {
     }
 });
 ```
+
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>
 <p>
