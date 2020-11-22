@@ -5,9 +5,13 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+import com.gzeinnumer.mylibformvalidator.constant.BaseMessage;
 import com.gzeinnumer.mylibformvalidator.constant.TypeForm;
 import com.gzeinnumer.mylibformvalidator.helper.RemoveSpaceAtFirst;
-import com.gzeinnumer.mylibformvalidator.model.ValidatorModel;
+import com.gzeinnumer.mylibformvalidator.model.FormInput;
+import com.gzeinnumer.mylibformvalidator.model.FormBase;
+import com.gzeinnumer.mylibformvalidator.model.Rule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,69 +22,83 @@ public class Validator {
 
     private static final String TAG = "Validator";
 
-    private List<ValidatorModel> views = new ArrayList<>();
+    BaseMessage baseMessage;
+
+    private final List<FormBase> views = new ArrayList<>();
 
     public Validator() {
-    }
-
-    public void addAllView(List<ValidatorModel> views) {
-        this.views = views;
+        baseMessage = new BaseMessage();
     }
 
     public boolean validate() {
         return toValidate(this.views);
     }
 
-    private static boolean toValidate(List<ValidatorModel> views) {
+    private boolean toValidate(List<FormBase> views) {
         String errorEmpty;
         String errorFormat;
         int minLength;
         boolean isValidate = true;
 
         for (int i = 0; i < views.size(); i++) {
-            ValidatorModel view = views.get(i);
-            EditText ed = view.getEditText();
+            FormBase view = views.get(i);
+            EditText ed = view.getFormInput().getEditText();
+            TextInputLayout parent = view.getFormInput().getParent();
 
-            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed));
+            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
 
             minLength = view.getRule().getMinLength();
 
-            errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : "Tidak boleh kosong";
-            errorFormat = (view.getRule().getErrorFormat() != null) ? view.getRule().getErrorFormat() : "Format salah";
+            errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : baseMessage.getEmpty();
+            errorFormat = (view.getRule().getErrorFormat() != null) ? view.getRule().getErrorFormat() : baseMessage.getFormat();
 
             if (ed.getText().toString().length() == 0) {
-                ed.setError(errorEmpty);
+                viewError(parent, ed, errorEmpty);
                 isValidate = false;
                 continue;
             }
             if (view.getRule().getTypeForm() == TypeForm.EMAIL) {
                 if (!isValidEmail(ed.getText().toString())) {
-                    ed.setError(errorFormat);
+                    viewError(parent, ed, errorFormat);
                     isValidate = false;
                 }
             } else if (view.getRule().getTypeForm() == TypeForm.NUMBER) {
                 if (!isValidNumber(ed.getText().toString())) {
-                    ed.setError(errorFormat);
+                    viewError(parent, ed, errorFormat);
                     isValidate = false;
                 }
             } else if (view.getRule().getTypeForm() == TypeForm.PHONE) {
                 if (!isValidPhone(ed.getText().toString())) {
-                    ed.setError(errorFormat);
+                    viewError(parent, ed, errorFormat);
                     isValidate = false;
                 }
             } else if (view.getRule().getTypeForm() == TypeForm.TEXT) {
                 if (ed.getText().toString().length() < minLength) {
-                    ed.setError(errorFormat);
+                    viewError(parent, ed, errorFormat);
                     isValidate = false;
                 }
             } else if (view.getRule().getTypeForm() == TypeForm.TEXT_NO_SYMBOL) {
                 if (isValidNoSymbol(ed.getText().toString())) {
-                    ed.setError(errorFormat);
+                    viewError(parent, ed, errorFormat);
                     isValidate = false;
                 }
             }
         }
         return isValidate;
+    }
+
+    private void viewError(TextInputLayout parent, EditText ed, String msg) {
+        if (parent!=null)
+            parent.setError(msg);
+        else
+            ed.setError(msg);
+    }
+
+    private void goneError(TextInputLayout parent) {
+        if (parent != null){
+            parent.setError(null);
+            parent.setErrorEnabled(false);
+        }
     }
 
     private static boolean isValidEmail(String target) {
@@ -95,7 +113,7 @@ public class Validator {
     }
 
     private static boolean isValidPhone(String number) {
-        return android.util.Patterns.PHONE.matcher(number).matches();
+        return Patterns.PHONE.matcher(number).matches();
     }
 
     private static boolean isValidNoSymbol(String s) {
@@ -107,5 +125,30 @@ public class Validator {
         Matcher m = p.matcher(s);
 
         return m.find();
+    }
+
+    public void addView(EditText view) {
+        views.add(new FormBase(new FormInput(null, view)));
+    }
+
+    public void addView(FormInput formInput) {
+        views.add(new FormBase(formInput));
+    }
+
+    public void addView(FormInput formInput, Rule rules) {
+        views.add(new FormBase(formInput, rules));
+    }
+
+    public void removeView(EditText view){
+        List<EditText> list = new ArrayList<>();
+        for(int i=0; i<views.size(); i++){
+            list.add(views.get(i).getFormInput().getEditText());
+        }
+        int index = list.indexOf(view);
+        views.remove(index);
+    }
+
+    public void addView(EditText formInput, Rule rules) {
+        views.add(new FormBase(formInput, rules));
     }
 }
