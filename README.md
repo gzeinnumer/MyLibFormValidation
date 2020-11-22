@@ -235,9 +235,8 @@ private void validateData() {
 }
 ```
 
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/><img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>
-<p>
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="400"/>|
+|---|---|
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
