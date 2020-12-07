@@ -122,7 +122,7 @@ public class ValidatorRealTime {
                         }
                     } else if (view.getRule().getTypeForm() == TypeForm.TEXT) {
                         if (ed.getText().toString().length() < finalMinLength) {
-                            viewError(parent, ed, finalErrorFormat);
+                            viewError(parent, ed, finalErrorEmpty);
                             changeValue(finalI,false);
                         } else {
                             goneError(parent);
