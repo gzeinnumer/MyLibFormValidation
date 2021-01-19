@@ -1,4 +1,4 @@
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg" width="300"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example10.jpg" width="300"/> |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example8.jpg" width="300"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example10.jpg" width="300"/> |
 |:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|---|
 
 <h1 align="center">
@@ -115,13 +115,13 @@ validator.addView(
 
 Read More new [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README.md)
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example13.jpg" width="400"/>|
 |---|---|
 |Example 1| Example 2 & Example 3|
 
-**FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
+**FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_main.xml) **.**
 
-[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_NOT_REALTIME.md)
+[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_NOT_REALTIME.md)
 
 
 ---
@@ -146,7 +146,7 @@ validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example19.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example19.jpg" width="400"/>
 <p>
 
 Add `EditText` or `TextInputEditText` with custom `Rule`.
@@ -158,7 +158,7 @@ validatorRealTime.addView(
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example20.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example20.jpg" width="400"/>
 <p>
 
 Add `EditText` or `TextInputEditText` with `TextInputLayout`.
@@ -172,7 +172,7 @@ validator.addView(
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example21.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example21.jpg" width="400"/>
 <p>
 
 Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
@@ -187,7 +187,7 @@ validator.addView(
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example22.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example22.jpg" width="400"/>
 <p>
 
 #
@@ -232,7 +232,7 @@ validator.addView(
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example23.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example23.jpg" width="400"/>
 <p>
 
 #
@@ -259,7 +259,7 @@ validatorRealTime.observer(new ValidatorCallBack() {
 });
 ```
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example25.jpg" width="400"/>|
 |---|---|
 
 #
@@ -326,11 +326,11 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-**FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml) **.**
+**FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_second.xml) **.**
 
 **Preview** :
 
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example9.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example10.jpg"/> |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example8.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example9.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example10.jpg"/> |
 |---|---|---|
 | Email Format | Password Requirements 8 Character  | `Button` Login Enable |
 
