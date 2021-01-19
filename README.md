@@ -109,6 +109,7 @@ validator.addView(
 ```
 |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
 |---|---|
+|Example 1| Example 2 & Example 3|
 
 #
 - Delete `form view` from validate process
