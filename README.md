@@ -6,7 +6,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.6-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.1.6-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -63,54 +63,47 @@ dependencies {
 ```java
 //import com.gzeinnumer.mylibformvalidator.Validator;
 
+TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
+TextInputEditText formNama = findViewById(R.id.form_nama);
+
 Validator validator = new Validator();
-```
 
-#
-- **Add your form that you want to validate.**
+//Add your form that you want to validate.
 
-Add `EditText` or `TextInputEditText` to `validator` with `addView(view)`.
-```java
-TextInputEditText formNama = = findViewById(R.id.form_nama);
-
+//Add `EditText` or `TextInputEditText` to `validator`.
 validator.addView(formNama); // Default TypeForm.TEXT
+
+btnSubmit.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (validator.validate()) {
+            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
+        }
+    }
+});
 ```
-Add `EditText` or `TextInputEditText` with custom `Rule`.
+
+- **Add view with custom configuration**
 ```java
+//Add `EditText` or `TextInputEditText` with custom `Rule`.
 validator.addView(
     formNama,
     new Rule(TypeForm.TEXT)
 );
-```
 
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>
-<p>
-
-Add `EditText` or `TextInputEditText` with `TextInputLayout`.
-```java
-TextInputEditText formNama = = findViewById(R.id.form_nama);
-TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
-
+//Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 validator.addView(
     new FormInput(formNamaParent, formNama)
 ); // Default TypeForm.TEXT
-```
-Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
-```java
-TextInputEditText formNama = = findViewById(R.id.form_nama);
-TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
 
+//Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 validator.addView(
     new FormInput(formNamaParent, formNama),
     new Rule(TypeForm.TEXT)
 );
 ```
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>
-<p>
-
 #
 - Delete `form view` from validate process
 
@@ -125,13 +118,13 @@ validator.removeView(formNama);
 Here some `Rule` that you can use.
 ```java
 int minLength = 2;
-String errorLength = "Form tidak boleh kosong";
-String errorFormat = "Format salah";
+String errorLengthMsg = "Form tidak boleh kosong";
+String errorFormatMsg = "Format salah";
 
 new Rule(TypeForm.TEXT)
 new Rule(TypeForm.TEXT, minLength)
-new Rule(TypeForm.TEXT, minLength, errorLength)
-new Rule(TypeForm.TEXT, minLength, errorLength, errorFormat)
+new Rule(TypeForm.TEXT, minLength, errorLengthMsg)
+new Rule(TypeForm.TEXT, minLength, errorLengthMsg, errorFormatMsg)
 ```
 `TypeForm` available value
 ```java
@@ -478,6 +471,8 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
   - Support Delete
 - **1.0.6**
   - Bug Fixing
+- **1.1.6**
+  - Add Feature Disable Start With Space
 
 ---
 

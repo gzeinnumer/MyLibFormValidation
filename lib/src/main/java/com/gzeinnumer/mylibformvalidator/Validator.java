@@ -45,8 +45,6 @@ public class Validator {
             EditText ed = view.getFormInput().getEditText();
             TextInputLayout parent = view.getFormInput().getParent();
 
-            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
-
             minLength = view.getRule().getMinLength();
 
             errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : baseMessage.getEmpty();
@@ -139,6 +137,19 @@ public class Validator {
         views.add(new FormBase(formInput, rules));
     }
 
+    public void addView(EditText formInput, Rule rules) {
+        views.add(new FormBase(formInput, rules));
+    }
+
+    public void build(){
+        for(int i=0; i<views.size(); i++) {
+            FormBase view = views.get(i);
+            EditText ed = view.getFormInput().getEditText();
+            TextInputLayout parent = view.getFormInput().getParent();
+            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
+        }
+    }
+
     public void removeView(EditText view){
         List<EditText> list = new ArrayList<>();
         for(int i=0; i<views.size(); i++){
@@ -146,9 +157,5 @@ public class Validator {
         }
         int index = list.indexOf(view);
         views.remove(index);
-    }
-
-    public void addView(EditText formInput, Rule rules) {
-        views.add(new FormBase(formInput, rules));
     }
 }
