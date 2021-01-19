@@ -91,6 +91,10 @@ btnSubmit.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example13.jpg" width="400"/>|
+|---|---|
+|Example 1| Example 2 & Example 3|
+
 - **Add view with custom configuration**
 ```java
 //example 1
@@ -115,10 +119,6 @@ validator.addView(
 ```
 
 Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_RULE.md)
-
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example13.jpg" width="400"/>|
-|---|---|
-|Example 1| Example 2 & Example 3|
 
 **FullCode**
 [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
@@ -196,6 +196,7 @@ validatorRealTime.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_RULE.md)
 
 **FullCode**
 [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java)
