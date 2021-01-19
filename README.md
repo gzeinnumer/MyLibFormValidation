@@ -185,7 +185,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 
 Put your `EditText` or `TextInputEditText` to `removeView(view)`.
 ```java
-validator.removeView(formNama);
+validatorRealTime.removeView(formNama);
 ```
 
 #
