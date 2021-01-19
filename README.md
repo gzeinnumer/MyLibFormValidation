@@ -6,7 +6,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.1.6-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.1.7-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -234,6 +234,8 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
   - Bug Fixing
 - **1.1.6**
   - Add Feature Disable Start With Space
+- **1.1.7**
+  - Bug Fixing
 
 ---
 
