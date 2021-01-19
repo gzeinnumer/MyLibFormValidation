@@ -171,6 +171,9 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example25.jpg" width="400"/>|
+|---|---|
+
 - Add view with custom configuration
 ```java
 //example 1
@@ -193,13 +196,6 @@ validatorRealTime.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example22.jpg" width="400"/>
-<p>
-
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example25.jpg" width="400"/>|
-|---|---|
 
 **FullCode**
 [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java)
