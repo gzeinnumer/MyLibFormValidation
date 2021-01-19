@@ -65,6 +65,7 @@ dependencies {
 
 TextInputLayout formNamaParent = findViewById(R.id.form_nama_p);
 TextInputEditText formNama = findViewById(R.id.form_nama);
+Button btnSubmit = findViewById(R.id.btn_submit);
 
 Validator validator = new Validator();
 
@@ -113,7 +114,7 @@ validator.addView(
 );
 ```
 
-Read More new [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README.md)
+Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_RULE.md)
 
 |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example13.jpg" width="400"/>|
 |---|---|
