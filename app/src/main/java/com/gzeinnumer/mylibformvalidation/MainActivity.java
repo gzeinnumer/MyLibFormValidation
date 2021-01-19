@@ -45,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.submit);
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateData();
-            }
-        });
-    }
-
-    private void validateData() {
         Validator validator = new Validator();
 
         validator.addView(formNama);
@@ -82,11 +73,20 @@ public class MainActivity extends AppCompatActivity {
         );
 
         //validator.removeView(formNoHp);
+        validator.build();
 
-        if (validator.validate()) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-        }
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean result = validator.validate();
+                //true if validate success
+                //false if validate failed
+                if (result) {
+                    Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not Done", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

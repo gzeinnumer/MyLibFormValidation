@@ -73,10 +73,15 @@ Validator validator = new Validator();
 //Add `EditText` or `TextInputEditText` to `validator`.
 validator.addView(formNama); // Default TypeForm.TEXT
 
+validator.build();
+
 btnSubmit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        if (validator.validate()) {
+        boolean result = validator.validate();
+        //true if validate success
+        //false if validate failed
+        if (result) {
             Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
@@ -110,138 +115,6 @@ validator.addView(
 |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
 |---|---|
 |Example 1| Example 2 & Example 3|
-
-#
-- Delete `form view` from validate process
-
-Put your `EditText` or `TextInputEditText` to `removeView(view)`.
-```java
-validator.removeView(formNama);
-```
-
-#
-- **Custom `Rule`.**
-
-Here some `Rule` that you can use.
-```java
-int minLength = 2;
-String errorLengthMsg = "Form tidak boleh kosong";
-String errorFormatMsg = "Format salah";
-
-new Rule(TypeForm.TEXT)
-new Rule(TypeForm.TEXT, minLength)
-new Rule(TypeForm.TEXT, minLength, errorLengthMsg)
-new Rule(TypeForm.TEXT, minLength, errorLengthMsg, errorFormatMsg)
-```
-`TypeForm` available value
-```java
-TypeForm.TEXT               //Support Symbol / Number Decimal
-TypeForm.EMAIL              //Email Format
-TypeForm.NUMBER             //Number Integer
-TypeForm.PHONE              //Phone Number Format With +62
-TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
-```
-Example :
-```java
-int minLength = 8;
-String errorLength = "Minimal 8 Charakter";
-String errorFormat = "Tidak Boleh Mengunakan Symbol";
-validator.addView(
-        new FormInput(formNamaParent, formNama),
-        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
-);
-```
-
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>|
-|---|---|
-
-```java
-int minLength = 8;
-String errorLength = "Minimal 8 Charakter";
-String errorFormat = "Tidak Boleh Mengunakan Symbol";
-validator.addView(
-        formNama,
-        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
-);
-```
-
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>|
-|---|---|
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example18.jpg" width="400"/>
-<p>
-
-#
-- **Validate Result.**
-
-Use `validator.validate()` to get result of your validate.
-```java
-boolean result = validator.validate();
-//true if validate success
-//false if validate failed
-```
-
-#
-- **Validate data by `OnClickListener`.**
-
-Trigger with `OnClickListener`.
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-
-    ... findViewById ...
-
-    btnSubmit.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            validateData();
-        }
-    });
-}
-```
-Validate Proses will be like this.
-```java
-TextInputEditText formNama, formAlamat, formNim,
-    formJurusan, formEmail, formUmur, formNoHp;
-TextInputLayout formNamaParent, formAlamatParent, formNimParent,
-    formJurusanParent, formEmailParent, formUmurParent, formNoHpParent;
-
-private void validateData() {
-    Validator validator = new Validator();
-
-    validator.addView(formNama);
-    validator.addView(
-            formAlamat,
-            new Rule(TypeForm.TEXT)
-    );
-    validator.addView(
-            new FormInput(formNimParent, formNim)
-    );
-    validator.addView(
-            new FormInput(formJurusanParent, formJurusan),
-            new Rule(TypeForm.TEXT_NO_SYMBOL)
-    );
-    validator.addView(
-            new FormInput(formEmailParent, formEmail),
-            new Rule(TypeForm.EMAIL, 2)
-    );
-    validator.addView(
-            new FormInput(formUmurParent, formUmur),
-            new Rule(TypeForm.NUMBER, 2, "Umur tidak boleh kosong")
-    );
-    validator.addView(
-            new FormInput(formNoHpParent, formNoHp),
-            new Rule(TypeForm.PHONE, 2, "NoHp tidak boleh kosong", "Format NoHp salah")
-    );
-
-    if (validator.validate()) {
-        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-    } else {
-        Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-    }
-}
-```
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
