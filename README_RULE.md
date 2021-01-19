@@ -67,3 +67,8 @@ validator.addView(
 <p align="center">
     <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example18.jpg" width="400"/>
 <p>
+
+#
+```
+Copyright 2020 M. Fadli Zein
+```
