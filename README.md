@@ -144,6 +144,7 @@ validatorRealTime.addView(
 
 validatorRealTime.build();
 
+//Validate Realtime
 validatorRealTime.observer(new ValidatorCallBack() {
     @Override
     public void result(boolean isDone) {
