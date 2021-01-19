@@ -45,8 +45,6 @@ public class Validator {
             EditText ed = view.getFormInput().getEditText();
             TextInputLayout parent = view.getFormInput().getParent();
 
-            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
-
             minLength = view.getRule().getMinLength();
 
             errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : baseMessage.getEmpty();
@@ -88,14 +86,14 @@ public class Validator {
     }
 
     private void viewError(TextInputLayout parent, EditText ed, String msg) {
-        if (parent!=null)
+        if (parent != null)
             parent.setError(msg);
         else
             ed.setError(msg);
     }
 
     private void goneError(TextInputLayout parent) {
-        if (parent != null){
+        if (parent != null) {
             parent.setError(null);
             parent.setErrorEnabled(false);
         }
@@ -129,26 +127,37 @@ public class Validator {
 
     public void addView(EditText view) {
         views.add(new FormBase(new FormInput(null, view)));
+        build();
     }
 
     public void addView(FormInput formInput) {
         views.add(new FormBase(formInput));
+        build();
     }
 
     public void addView(FormInput formInput, Rule rules) {
         views.add(new FormBase(formInput, rules));
-    }
-
-    public void removeView(EditText view){
-        List<EditText> list = new ArrayList<>();
-        for(int i=0; i<views.size(); i++){
-            list.add(views.get(i).getFormInput().getEditText());
-        }
-        int index = list.indexOf(view);
-        views.remove(index);
+        build();
     }
 
     public void addView(EditText formInput, Rule rules) {
         views.add(new FormBase(formInput, rules));
+        build();
+    }
+
+    private void build() {
+        FormBase formBase = views.get(views.size() - 1);
+        EditText ed = formBase.getFormInput().getEditText();
+        TextInputLayout parent = formBase.getFormInput().getParent();
+        ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
+    }
+
+    public void removeView(EditText view) {
+        List<EditText> list = new ArrayList<>();
+        for (int i = 0; i < views.size(); i++) {
+            list.add(views.get(i).getFormInput().getEditText());
+        }
+        int index = list.indexOf(view);
+        views.remove(index);
     }
 }

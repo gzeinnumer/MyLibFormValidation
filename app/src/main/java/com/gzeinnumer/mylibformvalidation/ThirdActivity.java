@@ -31,26 +31,24 @@ public class ThirdActivity extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.submit_t);
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                init();
-            }
-        });
-    }
-
-    private void init() {
         Validator validator = new Validator();
         validator.addView(
                 new FormInput(formUserNameParent, formUserName),
                 new Rule(TypeForm.TEXT_NO_SYMBOL,8,"Minimal 8 Charakter", "Tidak Boleh Mengunakan Symbol")
         );
         //validator.removeView(formUserName);
+//        validator.build();
 
-        if (validator.validate()) {
-            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Done", Toast.LENGTH_SHORT).show();
-        }
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (validator.validate()) {
+                    Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not Done", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

@@ -68,8 +68,6 @@ public class ValidatorRealTime {
             EditText ed = view.getFormInput().getEditText();
             TextInputLayout parent = view.getFormInput().getParent();
 
-            ed.addTextChangedListener(new RemoveSpaceAtFirst(ed, parent));
-
             minLength = view.getRule().getMinLength();
 
             errorEmpty = (view.getRule().getErrorEmpty() != null) ? view.getRule().getErrorEmpty() : baseMessage.getEmpty();
@@ -88,7 +86,10 @@ public class ValidatorRealTime {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                    String text = ed.getText().toString();
+                    if (text.startsWith(" ")) {
+                        ed.setText(text.trim());
+                    }
                 }
 
                 @Override
