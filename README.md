@@ -118,7 +118,7 @@ validator.addView(
 
 **FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml) **.**
 
-[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/MASTER/README_VALIDATOR.md)
+[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_NOT_REALTIME.md)
 
 
 ---
