@@ -37,7 +37,7 @@ public class ThirdActivity extends AppCompatActivity {
                 new Rule(TypeForm.TEXT_NO_SYMBOL,8,"Minimal 8 Charakter", "Tidak Boleh Mengunakan Symbol")
         );
         //validator.removeView(formUserName);
-        validator.build();
+//        validator.build();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

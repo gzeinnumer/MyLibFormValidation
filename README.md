@@ -74,8 +74,6 @@ Validator validator = new Validator();
 //Add `EditText` or `TextInputEditText` to `validator`.
 validator.addView(formNama); // Default TypeForm.TEXT
 
-validator.build();
-
 btnSubmit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

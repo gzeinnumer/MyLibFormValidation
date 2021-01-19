@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         );
 
         //validator.removeView(formNoHp);
-        validator.build();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
