@@ -23,11 +23,11 @@ TypeForm.TEXT_NO_SYMBOL     //Not Support Symbol
 Example :
 ```java
 int minLength = 8;
-String errorLength = "Minimal 8 Charakter";
-String errorFormat = "Tidak Boleh Mengunakan Symbol";
+String errorLengthMsg = "Minimal 8 Charakter";
+String errorFormatMsg = "Tidak Boleh Mengunakan Symbol";
 validator.addView(
         new FormInput(formNamaParent, formNama),
-        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLengthMsg, errorFormatMsg)
 );
 ```
 
@@ -36,11 +36,11 @@ validator.addView(
 
 ```java
 int minLength = 8;
-String errorLength = "Minimal 8 Charakter";
-String errorFormat = "Tidak Boleh Mengunakan Symbol";
+String errorLengthMsg = "Minimal 8 Charakter";
+String errorFormatMsg = "Tidak Boleh Mengunakan Symbol";
 validator.addView(
         formNama,
-        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLength, errorFormat)
+        new Rule(TypeForm.TEXT_NO_SYMBOL, minLength, errorLengthMsg, errorFormatMsg)
 );
 ```
 
