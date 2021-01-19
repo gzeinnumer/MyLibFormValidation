@@ -7,3 +7,9 @@
 | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example4.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example7.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example3.jpg"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example2.jpg"/> |
 |---|---|---|---|
 | `default setting` | minimal charakter is 8 | Custom error message | Format `email` must be correct |
+
+[**Back**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README.md)
+
+```
+Copyright 2020 M. Fadli Zein
+```

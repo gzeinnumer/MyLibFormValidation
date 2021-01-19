@@ -112,6 +112,9 @@ validator.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
+
+Read More new [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README.md)
+
 |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
 |---|---|
 |Example 1| Example 2 & Example 3|
