@@ -179,20 +179,20 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 //example 1
 //Add `EditText` or `TextInputEditText` with custom `Rule`.
 validatorRealTime.addView(
-    formNama,
+    formUserName,
     new Rule(TypeForm.EMAIL)
 );
 
 //example 2
 //Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 validatorRealTime.addView(
-    new FormInput(formNamaParent, formNama)
+    new FormInput(formUserNameParent, formUserName)
 ); // Default TypeForm.TEXT
 
 //example3
 //Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 validatorRealTime.addView(
-    new FormInput(formNamaParent, formNama),
+    new FormInput(formUserNameParent, formUserName),
     new Rule(TypeForm.TEXT)
 );
 ```
