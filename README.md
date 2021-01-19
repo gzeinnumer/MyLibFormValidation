@@ -132,41 +132,13 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 
 - **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
-//import com.gzeinnumer.mylibformvalidator.ValidatorRealTime;
-
-TextInputEditText formUserName = = findViewById(R.id.form_username);
-
-ValidatorRealTime validatorRealTime = new ValidatorRealTime();
-
-//Add your form that you want to validate.
-
-//Add `EditText` or `TextInputEditText` to `validator`.
-validatorRealTime.addView(formUserName); // Default TypeForm.TEXT
-```
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example19.jpg" width="400"/>
-<p>
-
-Add `EditText` or `TextInputEditText` with custom `Rule`.
-```java
-validatorRealTime.addView(
-    formUserName,
-    new Rule(TypeForm.EMAIL)
-);
-```
-
-<p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example20.jpg" width="400"/>
-<p>
-
-Add `EditText` or `TextInputEditText` with `TextInputLayout`.
-```java
 TextInputEditText formUserName = = findViewById(R.id.form_username);
 TextInputLayout formUserNameParent = findViewById(R.id.form_username_p);
 Button btnSubmit = findViewById(R.id.btn_submit);
 
-validator.addView(
+ValidatorRealTime validatorRealTime = new ValidatorRealTime();
+
+validatorRealTime.addView(
     new FormInput(formUserNameParent, formUserName)
 ); // Default TypeForm.TEXT
 
