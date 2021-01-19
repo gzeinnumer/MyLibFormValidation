@@ -87,23 +87,29 @@ btnSubmit.setOnClickListener(new View.OnClickListener() {
 
 - **Add view with custom configuration**
 ```java
+//example 1
 //Add `EditText` or `TextInputEditText` with custom `Rule`.
 validator.addView(
     formNama,
-    new Rule(TypeForm.TEXT)
+    new Rule(TypeForm.EMAIL)
 );
 
+//example 2
 //Add `EditText` or `TextInputEditText` with `TextInputLayout`.
 validator.addView(
     new FormInput(formNamaParent, formNama)
 ); // Default TypeForm.TEXT
 
+//example3
 //Add `EditText` or `TextInputEditText` with `TextInputLayout` and custom `Rule`.
 validator.addView(
     new FormInput(formNamaParent, formNama),
     new Rule(TypeForm.TEXT)
 );
 ```
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
+|---|---|
+
 #
 - Delete `form view` from validate process
 
