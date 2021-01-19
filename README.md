@@ -57,7 +57,7 @@ dependencies {
 
 ## USE
 
-### Validation Form
+## Validation Form
 
 - **Import and start validation with make and object from class `Validator`.**
 ```java
@@ -128,7 +128,7 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 
 ---
 
-### Validation Form RealTime
+## Validation Form RealTime
 
 - **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
