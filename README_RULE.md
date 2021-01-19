@@ -1,13 +1,3 @@
-
-
-#
-- Delete `form view` from validate process
-
-Put your `EditText` or `TextInputEditText` to `removeView(view)`.
-```java
-validator.removeView(formNama);
-```
-
 #
 - **Custom `Rule`.**
 
@@ -41,7 +31,7 @@ validator.addView(
 );
 ```
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example14.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example15.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example14.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example15.jpg" width="400"/>|
 |---|---|
 
 ```java
@@ -54,7 +44,7 @@ validator.addView(
 );
 ```
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example16.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example17.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example16.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example17.jpg" width="400"/>|
 |---|---|
 
 ```java
@@ -65,7 +55,7 @@ validator.addView(
 ```
 
 <p align="center">
-    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example18.jpg" width="400"/>
+    <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example18.jpg" width="400"/>
 <p>
 
 #

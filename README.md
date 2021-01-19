@@ -1,4 +1,4 @@
-| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example8.jpg" width="300"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example10.jpg" width="300"/> |
+| <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example5.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example8.jpg" width="300"/> |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example10.jpg" width="300"/> |
 |:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|---|
 
 <h1 align="center">
@@ -91,6 +91,15 @@ btnSubmit.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+#
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator.removeView(formNama);
+```
+
+#
 - **Add view with custom configuration**
 ```java
 //example 1
@@ -114,16 +123,16 @@ validator.addView(
 );
 ```
 
-Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_RULE.md)
+Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_RULE.md)
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example13.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example12.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example13.jpg" width="400"/>|
 |---|---|
 |Example 1| Example 2 & Example 3|
 
 **FullCode**
-[**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
-**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_main.xml)
-**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_NOT_REALTIME.md) **.**
+[**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
+**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml)
+**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_NOT_REALTIME.md) **.**
 
 
 ---
@@ -171,6 +180,15 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+#
+- Delete `form view` from validate process
+
+Put your `EditText` or `TextInputEditText` to `removeView(view)`.
+```java
+validator.removeView(formNama);
+```
+
+#
 - Add view with custom configuration
 ```java
 //example 1
@@ -193,15 +211,15 @@ validatorRealTime.addView(
     new Rule(TypeForm.TEXT)
 );
 ```
-Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_RULE.md)
+Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_RULE.md)
 
-|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example25.jpg" width="400"/>|
+|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/master/preview/example25.jpg" width="400"/>|
 |---|---|
 
 **FullCode**
-[**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java)
-**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_second.xml)
-**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_REALTIME.md) **.**
+[**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java)
+**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_second.xml)
+**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_REALTIME.md) **.**
 
 ---
 
@@ -222,7 +240,7 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 ---
 
 ### Contribution
-You can sent your constibution to `branche` `open-pull`.
+You can sent your constibution to `branche` `master`.
 
 ---
 
