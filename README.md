@@ -120,9 +120,10 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 |---|---|
 |Example 1| Example 2 & Example 3|
 
-**FullCode** [**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_main.xml) **.**
-
-[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_NOT_REALTIME.md)
+**FullCode**
+[**MainActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/MainActivity.java)
+**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_main.xml)
+**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_NOT_REALTIME.md) **.**
 
 
 ---
@@ -227,9 +228,10 @@ validatorRealTime.addView(
 |<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example24.jpg" width="400"/>|<img src="https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/preview/example25.jpg" width="400"/>|
 |---|---|
 
-**FullCode** [**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java) **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_second.xml) **.**
-
-[**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_REALTIME.md)
+**FullCode**
+[**SecondActivity**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/java/com/gzeinnumer/mylibformvalidation/SecondActivity.java)
+**&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/app/src/main/res/layout/activity_second.xml)
+**&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/open-pull/README_VALIDATOR_REALTIME.md) **.**
 
 ---
 
