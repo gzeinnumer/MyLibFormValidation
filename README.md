@@ -9,15 +9,24 @@
     <a><img src="https://img.shields.io/badge/Version-1.1.7-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
-    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
     <p>Simple way to Validate Form</p>
 </div>
 
 ---
+# Content List
+* [Download](#download)
+* [Feature List](#feature-list)
+* [Tech stack and 3rd library](#tech-stack-and-3rd-library)
+* [Usage](#usage)
+* [Example Code/App](#example-codeapp)
+* [Version](#version)
+* [Contribution](#contribution)
 
-## Download
+---
+# Download
 Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
 // build.gradle project
@@ -36,14 +45,17 @@ dependencies {
 }
 ```
 
-## Feature List
+---
+# Feature List
 - [x] [Validation Form](#validation-form)
 - [x] [Validation Form RealTime](#validation-form-realtime)
 
-## Tech stack and 3rd library
+---
+# Tech stack and 3rd library
 - Material.io ([docs](https://material.io/develop/android/docs/getting-started))
 
 ---
+# Usage
 
 **First Step**. Use `MaterialComponents` in your style :
 
@@ -53,11 +65,8 @@ dependencies {
 </style>
 ```
 
----
-
-## USE
-
-## Validation Form
+#
+### Validation Form
 
 - **Import and start validation with make and object from class `Validator`.**
 ```java
@@ -132,10 +141,8 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 **&** [**XML**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/app/src/main/res/layout/activity_main.xml)
 **&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_NOT_REALTIME.md) **.**
 
-
----
-
-## Validation Form RealTime
+#
+### Validation Form RealTime
 
 - **Import and start validation with make and object from class `ValidatorRealTime`.**
 ```java
@@ -220,8 +227,12 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
 **&** [**Preview**](https://github.com/gzeinnumer/MyLibFormValidation/blob/master/README_VALIDATOR_REALTIME.md) **.**
 
 ---
+# Example Code/app
 
-### Version
+[Sample Code And App](https://github.com/gzeinnumer/MyLibFormValidationExample)
+
+---
+# Version
 - **1.0.0**
   - First Release
 - **1.0.1**
@@ -238,8 +249,7 @@ Read More Custom [**Rule**](https://github.com/gzeinnumer/MyLibFormValidation/bl
   - Bug Fixing
 
 ---
-
-### Contribution
+# Contribution
 You can sent your constibution to `branche` `master`.
 
 ---
